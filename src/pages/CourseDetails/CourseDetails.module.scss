@@ -1,0 +1,146 @@
+@import "/src/styles/_mixins";
+.courseInfoSection {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.courseContainer {
+  width: 100%;
+  max-width: 1880px;
+  padding: 2rem 0.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  position: relative;
+
+  @include xsm-max {
+    padding: 4rem 1rem;
+  }
+
+  .sectionTitle {
+    font-size: 1rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+    letter-spacing: 0.1rem;
+    text-transform: uppercase;
+    z-index: 5;
+    letter-spacing: 5px;
+    background: linear-gradient(
+      180deg,
+      rgb(24, 117, 184) 0%,
+      rgb(92, 34, 187) 100%,
+      rgb(117, 18, 187) 100%
+    );
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+  }
+
+  .section_sub_title {
+    // color: rgba(128, 128, 128, 0.61);
+    color: rgb(88, 88, 88);
+    z-index: 5;
+    margin-bottom: 3.5rem;
+    font-size: 3rem;
+    font-weight: 700;
+    line-height: 130%;
+    width: 100%;
+    text-align: center;
+    @include sm-max {
+      font-size: 2rem;
+    }
+
+    span {
+      font-weight: 700;
+      color: #ffd500;
+    }
+  }
+}
+.container {
+  display: flex;
+  padding: 0 4rem;
+  position: relative;
+  width: 100%;
+  margin-bottom: 10rem;
+}
+
+.headingsContainer {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 100vh;
+  max-width: 750px;
+  text-align: center;
+  padding: 1rem 4rem;
+  gap: 2.5rem;
+
+  .heading {
+    margin: 20px 0;
+    font-size: 2.3rem;
+    padding: 1rem;
+    transition: font-weight 0.3s;
+    opacity: 0.2;
+  }
+
+  .heading.active {
+    opacity: 1;
+    font-weight: bold;
+  }
+}
+
+.infoCardContainer {
+  position: sticky;
+  top: 150px;
+  min-width: 400px;
+  height: max-content;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.card {
+  padding: 1.5rem 2rem;
+  background-color: white;
+  width: 100%;
+  max-width: 400px;
+  min-height: 430px;
+  display: flex;
+  flex-direction: column;
+  color: #363636;
+  border-radius: 0.6rem;
+  box-shadow: 2px 2px 5px 2px #cacaca;
+
+  &.center {
+    justify-content: center;
+    align-items: center;
+  }
+  
+  h2 {
+    font-size: 1.6rem;
+    margin-bottom: 1rem;
+    margin-top: 2rem;
+  }
+  p {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 1.2rem;
+    display: flex;
+    gap: 0.5rem;
+  }
+  img {
+    width: 100px;
+    height: 120px;
+    align-self: flex-end;
+  }
+  .greets{
+    font-size: 1.6rem;
+    color: #535353;
+    img {
+      width: 30px;
+      height: 30px;
+    }
+  }
+}

@@ -1,0 +1,23 @@
+[
+  {
+    "title": "IN-CLASS SESSIONS</br>BY THE BEST",
+    "image": "/assets/carousal/in-Class.svg",
+    "desc": [
+      "Live in-class sessions for optimum learning",
+      "In-class dedicated doubt clearance"
+    ]
+  },
+  {
+    "title": "FIND THE RIGHT JOB</br>FOR YOU",
+    "image": "/assets/carousal/jobs.svg",
+    "desc": [
+      "Guaranteed jobs on course completion",
+      "At least 4 mock interviews"
+    ]
+  },
+  {
+    "title": "MOST INTERACTIVE</br>COURSE",
+    "image": "/assets/carousal/course.svg",
+    "desc": ["Guaranteed 2-month internship", "Work on 4 real-world projects"]
+  }
+]

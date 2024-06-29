@@ -1,0 +1,178 @@
+@import "src/styles/_mixins";
+
+.courseCard {
+  width: 100%;
+  max-width: 400px;
+  background-image: linear-gradient(45deg, #cff8f6 0%, #fed6e3 100%);
+  border-radius: 0.75rem;
+  color: #1f2b37;
+  padding-bottom: 0.5rem;
+  box-shadow: 0px 6px 20px 5px rgba(168,168,168,1);
+  transition: all 0.2s ease-in-out;
+  position: relative;
+  &:hover {
+  box-shadow: 0px 6px 40px 5px rgba(168,168,168,1);
+  transition: all 0.2s ease-in-out;
+  transform: scale(1.02);
+  }
+
+  .cardCatagory {
+      background-color: #fac0d2;
+      padding: 0 2rem;
+      font-weight: 500;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      border-radius: 0.3rem;
+      height: 2rem;
+      display: grid;
+      place-content: center;
+      position: absolute;
+      top: -1rem;
+      left: 50%;
+      transform: translateX(-50%);
+  }
+
+  .titleBox {
+    width: 100%;
+    min-height: 8rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 2rem 0.5rem 1rem;
+    align-items: center;
+    justify-content: center;
+    img {
+      width: 3rem;
+    }
+    .cardTitle {
+      text-align: center;
+      font-size: 1.2rem;
+      color: #1f2b37;
+    }
+  }
+
+  .cardContent {
+    width: 95%;
+    margin: 0 auto;
+    padding: 1rem;
+    background-color: #fff;
+  }
+  .courseInfo {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    h5 {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      padding: 0.3rem 1rem;
+      border-radius: 0.4rem;
+      background-color: #fde1eacc;
+      box-shadow: 0 4px 4px #00000023;
+      span {
+        font-weight: 800;
+      }
+      @include xsm-max {
+        font-size: 0.7rem;
+        padding: 0.3rem;
+      }
+    }
+  }
+  .description {
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    @include xsm-max{
+      font-size: 0.8rem;
+    }
+  }
+  .curriculum, .placement {
+    margin-bottom: 1.5rem;
+    h3 {
+        font-size: 1rem;
+        svg{
+          height: 15px;
+          width: 15px;
+        }
+        @include xsm-max{
+          font-size: 0.9rem;
+        }
+    }
+  }
+  ul {
+    list-style: none;
+  }
+  li {
+    font-size: 0.9rem;
+    font-weight: 600;
+    &::before {
+        content: "✔";
+        margin-right: 0.5rem;
+        color: #25cc1f;
+        font-size: 0.9rem;
+    }
+    @include xsm-max{
+      font-size: 0.8rem;
+    }
+  }
+  // .cardButtons {
+  //   display: flex;
+  //   width: 100%;
+  //   flex-wrap: wrap;
+  //   justify-content: center;
+  //   align-items: center;
+  //   gap: 4%;
+  //   a {
+  //       color: #fff;
+  //       background-color: #508fec;
+  //       flex: 1 1 48%;
+  //       text-align: center;
+  //       padding: 0.5rem;
+  //       border-radius: 0.2rem;
+  //       font-weight: 600;
+  //       display: flex;
+  //       align-items: center;
+  //       justify-content: center;
+  //       gap: 5px;
+
+  //       &:first-child {
+  //           background-color: #96b9ee91;
+  //           color: #6050ec;
+  //       }
+  //   }
+  // }
+  .features{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 0.7rem;
+    margin: 1rem 0.68rem;
+    padding: 0.7rem;
+    background-color: white;
+    .feature_comp{
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      .icons{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        background-color: #71d86d46;
+        height: 30px;
+        width: 30px;
+      }
+      .content{
+        .heading{
+          font-weight: 800;
+          font-size: 14px;
+        }
+        .body{
+          font-size: 13px;
+        }
+      }
+    }
+  }
+}

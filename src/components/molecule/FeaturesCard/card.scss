@@ -1,0 +1,203 @@
+$main-font: "Yanone Kaffeesatz", sans-serif;
+$new-white: rgb(248, 246, 234);
+$text-margin: 10px;
+
+.page-container {
+  margin-bottom: 50px;
+  width: 100%;
+  max-width: 330px;
+}
+
+.card-container {
+  min-height: 400px;
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+  top: 20px;
+  width: 100%;
+  max-width: 330px;
+  position: relative;
+  border-radius: 15px;
+  transform-style: preserve-3d;
+  box-sizing: border-box;
+
+  &.flipped {
+    .front {
+      transform: rotateY(180deg);
+    }
+
+    .back {
+      transform: rotateY(0deg);
+    }
+  }
+
+  .front,
+  .back {
+    box-sizing: border-box;
+    height: 100%;
+    width: 100%;
+    display: block;
+    background: $new-white;
+    // box-shadow: 10px 10px 5px rgb(95, 77, 99);
+    // padding: 10px;
+    position: absolute;
+    border-radius: 10px;
+    backface-visibility: hidden;
+    transform-style: preserve-3d;
+    transition: -webkit-transform ease 500ms;
+    transition: transform ease 500ms;
+  }
+
+  .front {
+    z-index: 2;
+    transform: rotateY(0deg);
+    /* front tile styles go here! */
+  }
+
+  .back {
+    // background: $new-white;
+    background-color: white;
+    transform: rotateY(-180deg);
+    // padding: 20px;
+    padding: 20px 30px;
+    // text-align: justify;
+    font-size: 20px;
+    /* back tile styles go here! */
+    p {
+      font-size: 1.3rem;
+      text-align: center;
+      letter-spacing: 0.5px;
+      // &::first-letter {
+      //   font-size: 2.5rem;
+      //   font-weight: 600;
+      // }
+    }
+    .card-back-logo {
+      border-radius: 100%;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      display: flex;
+      cursor: pointer;
+      margin-bottom: 0.5rem;
+
+      // position: absolute;
+      // bottom: 2rem;
+      // left: 2rem;
+      img {
+        width: 3rem;
+        height: 3rem;
+      }
+    }
+    .card-back-btn {
+      border-radius: 100%;
+      justify-content: center;
+      align-items: center;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      cursor: pointer;
+      background-color: #facb41;
+      position: absolute;
+      bottom: 2rem;
+      right: 2rem;
+    }
+  }
+
+  .image-container {
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    border-radius: 10px;
+    flex-direction: column;
+    align-items: flex-start;
+    height: inherit;
+    padding: 0 1rem;
+
+    .front-content {
+      position: absolute;
+      top: 1rem;
+      left: 0;
+      padding: 1.5rem;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .subtitle {
+      font-size: 20px;
+      //   position: absolute;
+      // margin-bottom: 10px;
+      //   margin-left: $text-margin;
+      //   top: 0;
+      //   margin-top: 45px;
+      // bottom: 0;
+      //   left: 0;
+      color: $new-white;
+    }
+
+    .card-image {
+      margin-top: auto;
+      width: 250px;
+      border-radius: 10px;
+    }
+
+    .title {
+      font-size: 34px;
+      //   position: absolute;
+      //   margin-bottom: $text-margin;
+      //   margin-left: $text-margin;
+      //   top: 0;
+      //   left: 0;
+      color: $new-white;
+    }
+
+    .card-flip-btn {
+      cursor: pointer;
+      background-color: #fff;
+      border-radius: 100%;
+      justify-content: center;
+      align-items: center;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      position: absolute;
+      bottom: 2rem;
+      right: 2rem;
+    }
+  }
+
+  .main-area {
+    margin-left: $text-margin;
+    margin-top: $text-margin;
+    margin-right: $text-margin;
+
+    .blog-post {
+      height: 100%;
+
+      .date {
+        margin-top: $text-margin;
+        margin-bottom: 5px;
+        font-size: 20px;
+      }
+
+      .read-more {
+        font-size: 20px;
+        position: relative;
+        bottom: 0px;
+        text-align: right;
+      }
+
+      .blog-content {
+        height: 90%;
+        display: block;
+        margin-top: $text-margin;
+        margin-bottom: $text-margin;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+    }
+  }
+}

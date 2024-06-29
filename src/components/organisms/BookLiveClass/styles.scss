@@ -1,0 +1,157 @@
+@import "src/styles/_mixins";
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+
+.book-a-classd-section {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fcf2ef;
+  flex-direction: column;
+  .signUpform {
+    font-family: "Roboto", sans-serif;
+    padding: 5rem;
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    @include sm-max {
+      padding: 3rem;
+    }
+    @include xsm-max {
+      padding: 4rem 2rem;
+    }
+    .formContainer {
+      padding: 2.5rem;
+      border-radius: 1rem;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      border-radius: 1rem;
+      max-width: 580px;
+      width: 100%;
+      background-color: #fff;
+      box-shadow: 4px 2px 5px 5px #9c9c9cc5;
+      h2 {
+        font-size: 2.2rem;
+        font-family: "Roboto", sans-serif;
+        font-weight: 700;
+        color: var(--primary-text-color);
+        text-align: center;
+        @include xsm-max {
+          font-size: 1.5rem;
+        }
+      }
+      h3 {
+        font-size: 1.3rem;
+        // letter-spacing: 0.05rem;
+        font-weight: 500;
+        color: var(--primary-text-color);
+        font-family: "Roboto", sans-serif;
+        margin-bottom: 2rem;
+        margin-top: 1rem;
+        text-align: center;
+        span {
+          color: #3a10e5;
+        }
+        @include xsm-max {
+          font-size: 1rem;
+        }
+      }
+
+      form {
+        max-width: 550px;
+        display: flex;
+        flex-direction: column;
+        font-family: "Roboto", sans-serif;
+        gap: 1rem;
+        width: 100%;
+        p {
+          font-size: 0.85rem;
+        }
+        .form-slots {
+          width: 100%;
+          display: flex;
+          gap: 1rem;
+          justify-content: flex-start;
+          color: black;
+          overflow-x: auto;
+          .timeSlot {
+            width: 31%;
+            flex: none;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            border: 1px solid #c3c8cd;
+            box-sizing: border-box;
+            border-radius: 5px;
+            padding: 7px 15px;
+            background-color: #fff;
+            cursor: pointer;
+            @include xsm-max {
+              width: 50%;
+            }
+          }
+
+          .active {
+            background-color: #ffd500;
+            border: 1px solid transparent;
+            font-weight: 700;
+          }
+
+          .timeSlot:hover {
+            background-color: #d3d3d3;
+            color: #000;
+            font-weight: 700;
+            border: 1px solid transparent;
+            &.active {
+              background-color: #ffd500;
+              border: 1px solid transparent;
+              font-weight: 700;
+            }
+            @include sm-max {
+              background-color: #fff;
+              color: #000;
+              font-weight: 400;
+              border: 1px solid #c3c8cd;
+            }
+          }
+
+          // Hide scrollbar for Webkit browsers (Safari, Chrome)
+          &::-webkit-scrollbar {
+            display: none;
+          }
+
+          // Hide scrollbar for Firefox
+          scrollbar-width: none;
+        }
+        .form-loader {
+          height: 40px;
+          width: 100%;
+          padding: 0.25rem 1rem;
+          background-color: #c1b5ff;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          color: #ffffff;
+          font-size: 0.9rem;
+          font-weight: 600;
+          border: none;
+          outline: none;
+          border-radius: 0.2rem;
+          transition: all 0.2s ease-in-out;
+          cursor: pointer;
+          img {
+            width: 60px;
+            height: 60px;
+          }
+        }
+      }
+    }
+  }
+}

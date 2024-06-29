@@ -1,0 +1,18 @@
+[
+    {
+        "title": "MERN Full-Stack Course",
+        "curriculum": [
+            "Logical reasoning & DSA",
+            "Frontend development with react.js",
+            "Backend development with node.js",
+            "4 real-world projects"
+        ],
+        "placement": [
+            "2-month internship",
+            "Job guarantee on course completion",
+            "At least 4 mock interviews",
+            "1:1 in-person placement support"            
+        ],
+        "catagory": "Software"
+    }
+]

@@ -1,0 +1,174 @@
+@import "src/styles/_mixins";
+.carausalSlide {
+  width: 100%;
+  min-height: 530px;
+  position: relative;
+  display: inline-flex !important;
+  justify-content: flex-end;
+  align-items: flex-end;
+  flex-direction: column;
+  @include xsm-max {
+    min-height: 550px;
+  }
+}
+
+.slideDescription {
+  position: absolute;
+  top: 1rem;
+  left: 2rem;
+  z-index: 5;
+  @include sm-max {
+    left: 1.5rem;
+  }
+  @include xsm-max {
+    left: 1rem;
+  }
+}
+
+.hero_carausal {
+  
+  width: 50%;
+  background-image: url('/assets/carausal-bg-2.png');
+  background-size:cover ;
+  background-color: #fff;
+  position: relative;
+  padding-top: 1rem;
+  padding-left: 3rem;
+  @include md-max {
+    width: 100%;
+  }
+  @include sm-max {
+    padding-left: 2rem;
+  }
+  @include xsm-max {
+    padding-left: 1rem;
+  }
+  .carausalSlide {
+    h2 {
+      // background-color: rgb(255, 240, 229);
+      font-size: 3.5rem;
+      font-family: "Roboto", sans-serif;
+      font-weight: 800;
+      display: inline;
+      margin-bottom: 2rem;
+      @include sm-max {
+        font-size: 2.5rem;
+      }
+      @include xsm-max {
+        font-size: 1.8rem;
+      }
+    }
+    img.background {
+      width:auto;
+      height: 350px;
+      margin-right: 1.5rem;
+      @include xsm-max {
+        height: 355px;
+      }
+    }
+    .slideDescription .desc_list {
+      margin-top: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+      li {
+        padding: .4rem;
+        font-weight: 600;
+        font-size: 0.875rem;
+        font-family: "Roboto", sans-serif;
+        // color: rgb(255, 240, 229);
+        white-space: wrap;
+        text-rendering: geometricPrecision;
+        line-height: 18px;
+        color: white;
+        background-color: black;
+        width: max-content;
+        list-style: none;
+        display: flex;
+        align-items: center;
+        gap: 0.4rem;
+        span {
+          font-size: 28px;
+        }
+        @include sm-max {
+        }
+        @include xsm-max {
+          max-width: 250px;
+        }
+      }
+    }
+  }
+
+  .slick-slider button.slick-arrow {
+    display: none !important;
+  }
+
+  .slick-slider .slick-dots {
+    bottom: 16px;
+    width: unset;
+    left: 50%;
+    transform: translateX(-50%);
+    // background-color: rgb(255, 240, 229);
+    border-radius: 1rem;
+    display: inline-flex !important;
+    li {
+      width: 20px;
+      height: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      & button:before {
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        content: "";
+        width: 13px;
+        height: 13px;
+        border: 1px solid #1f2b37;
+        border-radius: 50%;
+        opacity: 1;
+      }
+      &.slick-active button:before {
+        background-color: #1f2b37;
+      }
+    }
+  }
+}
+
+.aspirantsDescription {
+  padding: 0 1rem 3.5rem;
+  .profile_list {
+    margin-top: 1.5rem;
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    gap: 0.5rem;
+    list-style: none;
+    li {
+      display: grid;
+      grid-template-columns: 1fr 3fr;
+      height: 130px;
+      gap: 1rem;
+      img {
+        width: 100%;
+        height: inherit;
+      }
+      .profile_desc {
+        width: 100%;
+        max-width: 350px;
+        height: inherit;
+        background-color: rgb(255, 240, 229);
+        padding: 1rem;
+        p {
+          font-size: 1.1rem;
+          margin-bottom: 0.5rem;
+        }
+        h3 {
+          font-weight: 800;
+          font-size: 1.3rem;
+          color: #1f2b37;
+        }
+      }
+    }
+  }
+}

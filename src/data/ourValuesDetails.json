@@ -1,0 +1,38 @@
+[
+    {
+      "title": "Accessibility",
+      "description": "Ensuring equal access to quality education and opportunities for all students, regardless of their background or location.",
+      "image": "/assets/ourValues/1.png"
+    },
+    {
+      "title": "Empowerment",
+      "description": "Empowering students to reach their full potential by providing them with the necessary skills, knowledge, and resources to succeed in the tech industry.",
+      "image": "/assets/ourValues/2.png"
+
+    },
+    {
+      "title": "Integrity",
+      "description": "Upholding high ethical standards and transparency in all interactions and operations, earning trust and respect from students, partners, and the community.",
+      "image": "/assets/ourValues/3.png"
+
+    },
+    {
+      "title": "Community",
+      "description": "Building a strong sense of community among students, instructors, mentors, and partners, where collaboration, mutual support, and shared learning thrive.",
+      "image": "/assets/ourValues/4.png"
+
+    },
+    {
+      "title": "Innovation",
+      "description": "Embracing innovation and creativity in teaching methods, curriculum development, and technological solutions to stay at the forefront of educational advancements.",
+      "image": "/assets/ourValues/5.png"
+
+    },
+    {
+      "title": "Accountability",
+      "description": "Taking responsibility for the outcomes of educational programs and initiatives, and continuously striving for excellence and improvement.",
+      "image": "/assets/ourValues/6.png"
+
+    }
+  ]
+  

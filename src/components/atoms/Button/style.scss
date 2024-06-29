@@ -1,0 +1,38 @@
+@import "src/styles/_mixins";
+
+.app_btn {
+  height: 50px;
+  padding: 0.25rem 1rem;
+  background-color: #3a10e5;
+  color: #ffffff;
+  font-size: 0.9rem;
+  font-weight: 600;
+  border: none;
+  outline: none;
+  border-radius: 0.2rem;
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+  &:hover {
+    background-color: #5533ff;
+  }
+
+  &.header_login {
+    background-color: transparent;
+    color: #10162f;
+    font-weight: 700;
+    &:hover {
+      color: #3a10e5;
+      background-color: #75777e36;
+    }
+  }
+  &:disabled {
+    background-color: #cccccc;
+    color: #666666;
+    cursor: not-allowed;
+    opacity: 0.6;
+  }
+  @include xsm-max {
+    // height: auto;
+    padding: 0.5rem 1rem;
+  }
+}

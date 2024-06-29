@@ -1,0 +1,26 @@
+[
+    {
+        "name": "VAIBHAV GUPTA",
+        "designation": "Co-founder, Instructor",
+        "college": "IIT Delhi, IIM Ahmedabad",
+        "instagram": "https://www.instagram.com/vaibhav.g17",
+        "linkedin": "https://www.linkedin.com/in/vaibhavgupta387/",
+        "profilePicture":"/assets/ourTeam/vaibhav_gupta.png"
+    },
+    {
+        "name": "NAMAN GUPTA",
+        "designation": "Co-founder, Instructor",
+        "college": "BITS Pilani",
+        "instagram": "https://www.instagram.com/knamangupta",
+        "linkedin": "https://www.linkedin.com/in/naman-gupta-247548143/",
+        "profilePicture":"/assets/ourTeam/naman_gupta.png"
+    },
+    {
+        "name":"HARIHAR MENON",
+        "designation":"Instructor",
+        "college":"BITS Goa",
+        "instagram":"",
+        "linkedin":"https://www.linkedin.com/in/harihar-menon/",
+        "profilePicture":"/assets/ourTeam/harihar_menon.png"
+    }
+]

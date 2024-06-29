@@ -1,0 +1,74 @@
+@import "/src/styles/_mixins";
+.featureSection {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #10162f;
+  .featuresContainer {
+    width: 100%;
+    padding: 5rem 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    position: relative;
+    background-color: #10162F;
+    max-width: 1880px;
+  
+    @include xsm-max {
+      padding: 4rem 1rem;
+    }
+
+    .sectionHeading {
+      font-size: 1rem;
+      font-weight: 800;
+      margin-bottom: 1rem;
+      letter-spacing: 0.1rem;
+      text-transform: uppercase;
+      z-index: 5;
+      letter-spacing: 5px;
+      background: linear-gradient(
+        180deg,
+        rgb(139, 207, 255) 0%,
+        rgb(180, 133, 255) 100%,
+        rgb(196, 114, 255) 100%
+      );
+      -webkit-text-fill-color: transparent;
+      -webkit-background-clip: text;
+    }
+
+    .sectionTitle {
+      color: white;
+      font-size: 3rem;
+      width: 100%;
+      // max-width: 800px;
+      font-weight: 800;
+      margin-bottom: 2rem;
+      letter-spacing: 0.1rem;
+      text-align: center;
+      span {
+        color: #ffd500;
+      }
+      @include xsm-max {
+        font-size: 2rem;
+      }
+      @include md-max{
+        margin-bottom: 1rem;
+      }
+    }
+  }
+}
+.exploreButton {
+  background-color: #FFD500;
+  padding: 1rem 3rem;
+  border-radius: 10px;
+  transition: all .2s ease-in-out;
+
+  &:hover {
+  transition: all .2s ease-in-out;
+  background-color: #FFC107;
+  }
+}
