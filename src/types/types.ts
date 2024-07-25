@@ -45,3 +45,45 @@ export interface OurValuesCardDetails {
   description: string;
   image?: string;
 }
+
+export interface UserDetails {
+  enrolled: boolean;
+  phoneNumber: number | null;
+  name: string;
+  progress: number;
+  avatar: number | null;
+}
+
+export enum EventType {
+  COURSE_SYLLABUS_VIEW = "COURSE_SYLLABUS_VIEW",
+  LOCK_CLICK = "LOCK_BUTTON_CLICK",
+  TALK_TO_CLICK = "TALK_TO_CLICK",
+  NOT_SURE_CLICK = "NOT_SURE_CLICK",
+  REQUEST_A_CALLBACK_CLICK = "REQUEST_A_CALLBACK_CLICK",
+  FORM_HOME = "FORM_HOME",
+}
+
+export enum FAQType {
+  Program = 'Program',
+  Curriculum = 'Curriculum',
+  Teaching = 'Teaching',
+  EntranceTest = 'Entrance Test',
+  Mentors = 'Mentors',
+  PlacementSupport = 'Placement Support',
+  EntranceFees = 'Entrance Fees'
+}
+
+export interface FAQItem {
+  question: string;
+  startingParagraphs: string[];
+  pointerTitle: string;
+  pointers: string[];
+  endingParagraphs: string[];
+  endingLine: string;
+}
+
+// Interface for the FAQ schema
+export interface FAQ {
+  type: FAQType;
+  faq: FAQItem[];
+}

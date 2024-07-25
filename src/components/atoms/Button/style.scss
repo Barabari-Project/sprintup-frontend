@@ -15,16 +15,6 @@
   &:hover {
     background-color: #5533ff;
   }
-
-  &.header_login {
-    background-color: transparent;
-    color: #10162f;
-    font-weight: 700;
-    &:hover {
-      color: #3a10e5;
-      background-color: #75777e36;
-    }
-  }
   &:disabled {
     background-color: #cccccc;
     color: #666666;

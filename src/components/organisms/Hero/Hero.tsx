@@ -5,14 +5,14 @@ import Button from "../../atoms/Button/Button";
 import Carausal from "../../molecule/Carausal/Carausal";
 import { FaUser } from "react-icons/fa";
 import { FaPhoneAlt } from "react-icons/fa";
-import axios from "axios";
-// import Lottie from "react-lottie-player";
-// import loaderData from "/assets/Lottie/loader.json";
 import carausalData from "../../../data/carausalData.json";
 import demoSessionSchedule from "../../../data/demoSessionSchedule.json";
 import { toast } from "react-toastify";
 import { useFormContext } from "../../../context/formContext";
 import restEndPoints from "../../../data/restEndPoints.json";
+import { validateName, validatePhoneNumber } from "../../../utils/validations";
+import axiosInstance, { eventAxiosInstance } from "../../../utils/axiosInstance";
+import { EventType } from "../../../types/types";
 
 export interface ProfileData {
   image: string;
@@ -34,28 +34,9 @@ const Hero: React.FC = () => {
   const [timeSlot, setTimeSlot] = useState<Number | null>(0);
   const [nameError, setNameError] = useState<string | null>(null);
   const [numberError, setNumberError] = useState<string | null>(null);
-  const { isLoading, setLoading, formSubmitted, setFormSubmitted } = useFormContext();
+  const { isLoading, setLoading, formSubmitted, setFormSubmitted } =
+    useFormContext();
 
-  const validateName = (value: string): string | null => {
-    const namePattern = /^[A-Za-z\s]+$/;
-    if (value.trim().length < 3) {
-      return "Name must be at least 3 characters long.";
-    }
-    if (!namePattern.test(value)) {
-      return "Name should only contain alphabets and spaces.";
-    }
-    if( value.trim().length>50 ){
-      return "Name should not have more than 50 characters.";
-    }
-    return null;
-  };
-  const validatePhoneNumber = (value: string): string | null => {
-    const phoneNumberPattern = /^[0-9]{10}$/;
-    if (!phoneNumberPattern.test(value)) {
-      return "Please enter a valid 10-digit mobile number.";
-    }
-    return null;
-  };
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
@@ -76,7 +57,11 @@ const Hero: React.FC = () => {
           ? demoSessionSchedule[0]["date-be"]
           : demoSessionSchedule[1]["date-be"];
     const time =
-      timeSlot === 0 ? null : timeSlot === 1 ? demoSessionSchedule[0].time : demoSessionSchedule[1].time;
+      timeSlot === 0
+        ? null
+        : timeSlot === 1
+          ? demoSessionSchedule[0].time
+          : demoSessionSchedule[1].time;
 
     const data = {
       name: inputName.trim(),
@@ -86,18 +71,12 @@ const Hero: React.FC = () => {
     };
 
     try {
-      const response = await axios.post(
-        `${import.meta.env.VITE_BACKEND_BASE_URL}/${restEndPoints.bookALiveClass}`,
-        data
-      );
-      console.log("Response:", response.data);
+      const response = await axiosInstance.post(`/${restEndPoints.bookALiveClass}`, data);
       setFormSubmitted(true);
-      toast.success("Class successfully booked.");
-    } catch (error) {
-      console.error("There was an error making the request:", error);
-      toast.error("Something went wrong. Please try again.");
-    }
-    finally {
+      toast.success(response.data.message);
+    } catch (error: any) {
+      toast.error(error.response.data.error);
+    } finally {
       setLoading(false);
     }
   };
@@ -109,7 +88,7 @@ const Hero: React.FC = () => {
         <div className="hero-right">
           <div className="hero-form">
             <div className="form-title">
-              <h2>Build Your Tech Career With Us</h2>
+              <h2>Build Your Tech Career</h2>
             </div>
             <div className="form-subtitle">
               <h3>Best full-stack course designed</h3>
@@ -133,15 +112,18 @@ const Hero: React.FC = () => {
                 value={inputNumber}
                 disabled={isLoading || formSubmitted}
                 errorMessage={numberError}
-                onChange={(e) => setInputNumber(e.target.value)}
+                onChange={(e) => {
+                  setInputNumber(e.target.value);
+                  if (10 == e.target.value.length) {
+                    eventAxiosInstance.post(`/${restEndPoints.eventAuth}`, { type: EventType.FORM_HOME, phoneNumber: e.target.value })
+                  }
+                }}
               />
               <div className="hero-form-slots">
                 <div
                   className={`timeSlot ${timeSlot === 0 && "active"}`}
                   onClick={() => {
-                    isLoading ||
-                      (!formSubmitted &&
-                        setTimeSlot(0));
+                    isLoading || (!formSubmitted && setTimeSlot(0));
                   }}
                 >
                   <p>No Preference</p>
@@ -151,8 +133,7 @@ const Hero: React.FC = () => {
                   className={`timeSlot ${timeSlot === 1 && "active"}`}
                   onClick={() => {
                     isLoading ||
-                      (!formSubmitted &&
-                        setTimeSlot(timeSlot === 1 ? 0 : 1));
+                      (!formSubmitted && setTimeSlot(timeSlot === 1 ? 0 : 1));
                   }}
                 >
                   <p>{demoSessionSchedule[0]["date-fe"]}</p>
@@ -163,8 +144,7 @@ const Hero: React.FC = () => {
                   className={`timeSlot ${timeSlot === 2 && "active"}`}
                   onClick={() => {
                     isLoading ||
-                      (!formSubmitted &&
-                        setTimeSlot(timeSlot === 2 ? 0 : 2));
+                      (!formSubmitted && setTimeSlot(timeSlot === 2 ? 0 : 2));
                   }}
                 >
                   <p>{demoSessionSchedule[1]["date-fe"]}</p>
@@ -183,7 +163,11 @@ const Hero: React.FC = () => {
                 </div>
               ) : (
                 <Button
-                  text={formSubmitted ? "You have Booked Class!": "Book a Live Class for Free"}
+                  text={
+                    formSubmitted
+                      ? "You have Booked Class!"
+                      : "Book a Live Class for Free"
+                  }
                   style={{ width: "100%", marginTop: "0.8rem" }}
                   disabled={formSubmitted}
                 />

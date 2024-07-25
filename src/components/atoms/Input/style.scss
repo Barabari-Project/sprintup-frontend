@@ -13,7 +13,23 @@
   .inputBar {
     display: flex;
     position: relative;
-    
+    span {
+      position: absolute;
+    left: 0.6rem;
+    top: 0;
+    height: 100%;
+    /* transform: translateY(-50%); */
+    z-index: 10;
+    font-size: 1rem;
+    font-weight: 600;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+      @include xsm-max {
+        left: 0.4rem;
+      }
+    }
     svg {
       position: absolute;
       left: 0.8rem;
@@ -36,15 +52,14 @@
     background: #fff;
     font-size: 1rem;
     outline-color: #888888;
-    @include sm-max{
-      font-size: 1rem;
+    @include sm-max {
       padding: 1.2rem 1rem;
       padding-left: 2.2rem;
     }
   }
 
   input:disabled {
-    background: #c3c8cd;;
+    background: #c3c8cd;
   }
   .error {
     border: 1px solid red;

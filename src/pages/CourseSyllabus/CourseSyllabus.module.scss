@@ -1,0 +1,169 @@
+@import "/src/styles/_mixins";
+
+.courseSyllabus {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+
+  .pageDetails {
+    width: 100%;
+    background-color: #fcf2ef;
+    padding: 2rem 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+
+    .subject {
+      color: #10162f;
+      font-family: "Courier New", Courier, monospace;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+    .title {
+        color: #10162f;
+        font-size: 2rem;
+    }
+    .subTitle {
+      color: #10162f;
+      font-size: 1.2rem;
+      font-weight: 600;
+    }
+    .desc {
+      line-height: 1.4;
+      margin-bottom: 2rem;
+    }
+
+    .highlightedPoints {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+
+      .highlightedPoint {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        border-bottom: 1px solid black;
+        padding: 0.5rem;
+        gap: 1rem;
+
+        @include md-max {
+          grid-template-columns: 1fr;
+          border: none;
+        }
+
+        .point {
+          display: flex;
+          align-items: flex-start;
+          gap: 0.5rem;
+          svg {
+            font-size: 1.3rem;
+          }
+        }
+      }
+    }
+  }
+
+  .syllabusSection {
+    width: 100%;
+    background-color: #fcf2ef;
+    padding: 2rem 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+
+    .sectionTitle {
+      color: #10162f;
+      margin-bottom: 0.5rem;
+    }
+
+    .moduleContainer {
+      background-color: #fff;
+      padding: 1rem;
+      margin-bottom: 2rem;
+      border-radius: 0.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      .moduleTitle {
+        color: #10162f;
+        margin-bottom: 0.5rem;
+      }
+    }
+
+    .lessonContainer {
+      // background-color: #fcf2ef;
+      margin-bottom: 1rem;
+      padding: 1rem;
+      // border: 1px solid #bdbdbd;
+      border-radius: 0.5rem;
+      overflow: hidden;
+
+      .lessonTitle {
+        color: #10162f;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        cursor: pointer;
+
+        .expandIcon {
+          font-size: 1.5rem;
+          margin-left: auto;
+          transition: transform 0.3s ease;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+      
+        &.expanded .expandIcon {
+          transform: rotate(180deg);
+        }
+      }
+
+      .content {
+        margin-top: 0.5rem;
+
+        .lessonDescription {
+          margin-bottom: 1rem;
+        }
+
+        .topicsContainer {
+          display: flex;
+          width: 100%;
+          flex-direction: column;
+          gap: 2rem;
+        }
+
+        .topic {
+          display: flex;
+          align-items: center;
+          gap: 0.4rem;
+
+          .topicIcon {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid #000;
+            padding: 0.5rem;
+            border-radius: 50%;
+            cursor: pointer;
+
+            svg {
+              font-size: 1.4rem;
+            }
+          }
+
+          .topicContent {
+            h5 {
+              font-size: 1rem;
+              font-weight: 500;
+            }
+            p {
+              font-size: 0.9rem;
+            }
+          }
+        }
+      }
+    }
+  }
+}

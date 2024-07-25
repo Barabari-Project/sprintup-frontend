@@ -4,11 +4,13 @@ import Input from "../../atoms/Input/Input";
 import Button from "../../atoms/Button/Button";
 import { FaUser } from "react-icons/fa6";
 import { FaPhoneAlt } from "react-icons/fa";
-import axios from "axios";
 import demoSessionSchedule from "../../../data/demoSessionSchedule.json";
-import { toast } from 'react-toastify';
+import { toast } from "react-toastify";
 import { useFormContext } from "../../../context/formContext";
 import restEndPoints from "../../../data/restEndPoints.json";
+import { validateName, validatePhoneNumber } from "../../../utils/validations";
+import axiosInstance, { eventAxiosInstance } from "../../../utils/axiosInstance";
+import { EventType } from "../../../types/types";
 
 export interface ProfileData {
   image: string;
@@ -30,28 +32,9 @@ const BookLiveClassForm: React.FC = () => {
   const [timeSlot, setTimeSlot] = useState<Number | null>(0);
   const [nameError, setNameError] = useState<string | null>(null);
   const [numberError, setNumberError] = useState<string | null>(null);
-  const { isLoading, setLoading, formSubmitted, setFormSubmitted } = useFormContext();
+  const { isLoading, setLoading, formSubmitted, setFormSubmitted } =
+    useFormContext();
 
-  const validateName = (value: string): string | null => {
-    const namePattern = /^[A-Za-z\s]+$/;
-    if (value.trim().length < 3) {
-      return "Name must be at least 3 characters long.";
-    }
-    if (!namePattern.test(value)) {
-      return "Name should only contain alphabets and spaces.";
-    }
-    if (value.trim().length > 50) {
-      return "Name should not have more than 50 characters.";
-    }
-    return null;
-  };
-  const validatePhoneNumber = (value: string): string | null => {
-    const phoneNumberPattern = /^[0-9]{10}$/;
-    if (!phoneNumberPattern.test(value)) {
-      return "Please enter a valid 10-digit mobile number.";
-    }
-    return null;
-  };
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
@@ -74,7 +57,11 @@ const BookLiveClassForm: React.FC = () => {
           : demoSessionSchedule[1]["date-be"];
 
     const time =
-      timeSlot === 0 ? null : timeSlot === 1 ? demoSessionSchedule[0].time : demoSessionSchedule[1].time;
+      timeSlot === 0
+        ? null
+        : timeSlot === 1
+          ? demoSessionSchedule[0].time
+          : demoSessionSchedule[1].time;
 
     const data = {
       name: inputName.trim(),
@@ -84,15 +71,14 @@ const BookLiveClassForm: React.FC = () => {
     };
 
     try {
-      const response = await axios.post(
-        `${import.meta.env.VITE_BACKEND_BASE_URL}/${restEndPoints.bookALiveClass}`,
+      const response = await axiosInstance.post(
+        `/${restEndPoints.bookALiveClass}`,
         data
       );
-      console.log("Response:", response.data);
       setFormSubmitted(true);
-      toast.success("Class successfully booked.");
-    } catch (error) {
-      toast.error("Something went wrong. Please try again.");
+      toast.success(response.data.message);
+    } catch (error: any) {
+      toast.error(error.response.data.error);
     } finally {
       setLoading(false);
     }
@@ -103,9 +89,7 @@ const BookLiveClassForm: React.FC = () => {
       <div className="signUpform">
         <div className="formContainer">
           <h2>Book a Live Class</h2>
-          <h3>
-            We are planning a meet-up in <span> Lucknow!</span>
-          </h3>
+          <h3>New batches starting in August & September</h3>
           <form onSubmit={handleSubmit} style={{ margin: "auto" }}>
             <Input
               label="Full Name"
@@ -124,14 +108,18 @@ const BookLiveClassForm: React.FC = () => {
               value={inputNumber}
               disabled={isLoading || formSubmitted}
               errorMessage={numberError}
-              onChange={(e) => setInputNumber(e.target.value)}
+              onChange={(e) => {
+                setInputNumber(e.target.value);
+                if (10 == e.target.value.length) {
+                  eventAxiosInstance.post(`/${restEndPoints.eventAuth}`, { type: EventType.FORM_HOME, phoneNumber: e.target.value })
+                }
+              }}
             />
             <div className="form-slots">
               <div
                 className={`timeSlot ${timeSlot === 0 && "active"}`}
                 onClick={() => {
-                  isLoading ||
-                    (!formSubmitted && setTimeSlot(0));
+                  isLoading || (!formSubmitted && setTimeSlot(0));
                 }}
               >
                 <p>No Preference</p>
@@ -171,7 +159,11 @@ const BookLiveClassForm: React.FC = () => {
               </div>
             ) : (
               <Button
-                text={formSubmitted ? "You have Booked Class!" : "Book a Live Class for Free"}
+                text={
+                  formSubmitted
+                    ? "You have Booked Class!"
+                    : "Book a Live Class for Free"
+                }
                 style={{ width: "100%", marginTop: "0.8rem" }}
                 disabled={formSubmitted}
               />

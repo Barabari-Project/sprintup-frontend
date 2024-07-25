@@ -21,7 +21,7 @@ const Textarea: React.FC<TextareaProps> = ({ errorMessage, label, required, cust
         </label>
       )}
       <div className={styles.textareaBar}>
-        <textarea {...props} onChange={handleTextareaChange} className={errorMessage ?  `${styles.error}` : ""} />
+        <textarea {...props} onChange={handleTextareaChange} className={errorMessage ? `${styles.error}` : ""} />
       </div>
       {errorMessage && <p className={styles.errorMessage}>{errorMessage}</p>}
     </div>

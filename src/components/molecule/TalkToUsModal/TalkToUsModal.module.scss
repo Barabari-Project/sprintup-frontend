@@ -1,0 +1,47 @@
+@import "/src/styles/_mixins";
+
+.talkToUsModal:global(.DialogContent) {
+  width: 100%;
+  max-width: 400px;
+  padding-top: 3rem;
+
+  .closeBtn {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    cursor: pointer;
+
+    svg {
+      font-size: 1.5rem;
+    }
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+  }
+
+  .form_loader {
+    height: 40px;
+    width: 100%;
+    padding: 0.25rem 1rem;
+    background-color: #c1b5ff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #ffffff;
+    font-size: 0.9rem;
+    font-weight: 600;
+    border: none;
+    outline: none;
+    border-radius: 0.2rem;
+    transition: all 0.2s ease-in-out;
+    cursor: pointer;
+    img {
+      width: 60px;
+      height: 60px;
+    }
+  }
+}

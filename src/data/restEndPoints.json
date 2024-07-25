@@ -1,4 +1,13 @@
 {
     "bookALiveClass": "book-live-class",
-    "requestACallback": "request-a-callback"
+    "requestACall": "request-a-call",
+    "login": "auth/sign-in",
+    "signup": "auth/sign-up",
+    "auth": "auth",
+    "logout": "auth/logout",
+    "counselling": "counselling-session",
+    "eventAuth": "event-auth",
+    "event": "event",
+    "course": "course",
+    "getFaqByType": "faqs"
 }

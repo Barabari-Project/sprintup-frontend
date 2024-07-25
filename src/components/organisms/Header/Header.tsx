@@ -5,11 +5,15 @@ import { NavLink, Link, useLocation } from "react-router-dom";
 import { MdOutlineKeyboardDoubleArrowUp } from "react-icons/md";
 import logo from "/assets/logo.svg";
 import { useMedia } from "react-use";
+import { useSelector } from "react-redux";
+import { RootState } from "../../../redux/store";
+import ProfilePopover from "../../molecule/ProfilePopover/ProfilePopover";
 
 const Header: React.FC = () => {
   const [scrolled, setScrolled] = useState<boolean>(false);
   const [scrollToCourses, setScrollToCourses] = useState<boolean>(false);
   const location = useLocation();
+  const { user } = useSelector((state: RootState) => state.user);
   const isMobile = useMedia("(max-width: 575px)");
 
   useEffect(() => {
@@ -39,18 +43,6 @@ const Header: React.FC = () => {
     }
   }, [location, scrollToCourses]);
 
-  // const handleCoursesClick = () => {
-  //   if (location.pathname === "/") {
-  //     const element = document.getElementById("courses");
-  //     if (element) {
-  //       element.scrollIntoView({ behavior: "smooth" });
-  //     }
-  //   } else {
-  //     setScrollToCourses(true);
-  //     navigate("/");
-  //   }
-  // };
-
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
@@ -59,37 +51,40 @@ const Header: React.FC = () => {
     <>
       <header className={scrolled ? "scrolled" : ""}>
         <div className="header">
+          {isMobile ? <MobileNavbar /> : null}
           <div className={"header_logo"}>
-            <MobileNavbar />
-            <Link to="/" onClick={scrollToTop} className="logo">
-                <img src={logo} alt="" />
-                <h2>SprintUp</h2>
+            {!isMobile ? <MobileNavbar /> : null}
+            <Link to="/" state={{ isForceFull: true }} onClick={scrollToTop} className="logo">
+              <img src={logo} alt="" />
+              <h2>SprintUp</h2>
             </Link>
           </div>
           <nav className={"header_navigation"}>
             <ul>
               <li>
                 <NavLink
-                  to="/"
+                  to={user ? "/dashboard" : "/"}
                   className={({ isActive }) => (isActive ? "active" : "")}
                   onClick={scrollToTop}
                 >
-                  Home
+                  {user ? "My Home" : "Home"}
                 </NavLink>
               </li>
               <li>
-                {/* <a onClick={handleCoursesClick}>Courses</a> */}
-                <NavLink to="/course-details" className={({ isActive }) => (isActive ? "active" : "")}>
+                <NavLink
+                  to="/course-details"
+                  className={({ isActive }) => (isActive ? "active" : "")}
+                >
                   Courses
                 </NavLink>
               </li>
               <li>
-              <NavLink
+                <NavLink
                   to="/values"
                   className={({ isActive }) => (isActive ? "active" : "")}
                   onClick={scrollToTop}
                 >
-                  Our Values
+                  About Us
                 </NavLink>
               </li>
               <li>
@@ -102,24 +97,27 @@ const Header: React.FC = () => {
               </li>
             </ul>
           </nav>
+          {!user ? (
+            <div className="header_btns">
+              <Link to="/login" className="header_btn login">
+                Log In
+              </Link>
+              {!isMobile ? (
+                <Link to="/signup" className="header_btn signup">
+                  Sign Up
+                </Link>
+              ) : null}
+            </div>
+          ) : (
+            <div className="header_btns">
+              <ProfilePopover />
+            </div>
+          )}
         </div>
-      </header>
-      <div className="header-highlight">
-        {isMobile ? (
-          <>
-            <p>Lucknow's top offline MERN full-stack program.</p>
-            <p>Hurry, limited seats only! ⏰</p>
-          </>
-        ) : (
-          <p>
-            Lucknow's top offline MERN full-stack program. Hurry, limited seats
-            only! ⏰
-          </p>
-        )}
-      </div>
-      <a href="#" className={scrolled ? "back-to-top visible" : "back-to-top"}>
+      </header >
+      <div onClick={scrollToTop}  className={scrolled ? "back-to-top visible" : "back-to-top"}>
         <MdOutlineKeyboardDoubleArrowUp />
-      </a>
+      </div>
     </>
   );
 };

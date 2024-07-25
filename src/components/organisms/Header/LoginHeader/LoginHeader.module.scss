@@ -1,0 +1,94 @@
+@import "/src/styles/_mixins";
+
+.header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  background-color: var(--primary-background-color);
+  box-shadow: 0 2px 0 0 #cfcece;
+  transition: all 0.3s ease-in-out;
+  .loginHeader {
+    justify-content: space-between;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    max-width: 1880px;
+    padding: 0.2rem 6rem;
+    @include md-max {
+      padding: 1rem;
+    }
+
+    &_logo {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 1rem;
+      @include xsm-max {
+        font-size: 0.75rem;
+      }
+      .logo {
+        display: flex;
+        align-items: center;
+        color: black;
+        gap: 0.5rem;
+        img {
+          height: 60px;
+          @include md-max {
+            height: 40px;
+          }
+        }
+        h2 {
+          font-size: 1.5rem;
+          color: var(--primary-text-color);
+          cursor: pointer;
+        }
+      }
+      & .hamburgerIcon {
+        cursor: pointer;
+        font-size: 1.4rem;
+        display: none;
+
+        @include md-max {
+          display: flex;
+        }
+        @include xsm-max {
+          font-size: 1rem;
+        }
+      }
+    }
+
+    &_btns {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 1rem;
+      span {
+        font-weight: 600;
+        color: #1F2B37;
+      }
+      @include xsm-max {
+        span {
+          display: none;
+
+        }
+      }
+    }
+    &_btn {
+      padding: 0.6rem 1rem;
+      height: inherit;
+      color: #10162f;
+      font-weight: 600;
+      border-radius: 0.25rem;
+      transition: all 0.3s ease-in-out;
+      background-color: #3a10e5;
+      color: #fff;
+
+      &:hover {
+        background-color: #5533ff;
+        color: #fff;
+      }
+    }
+  }
+}

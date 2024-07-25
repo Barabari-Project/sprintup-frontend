@@ -1,0 +1,16 @@
+.header-highlight {
+    background-color: #ffd500;
+    width: 100%;
+    color: #000;
+    font-weight: 600;
+    text-align: center;
+    padding: 0.8rem;
+    cursor: pointer;
+
+    .swiper {
+        z-index: unset;
+    }
+    .swiper-wrapper {
+        z-index: unset;
+    }
+}

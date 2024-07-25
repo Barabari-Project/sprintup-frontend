@@ -1,0 +1,14 @@
+{
+  "enrolled": {
+    "Title": "Your journey to become a SUPER CODER has started!",
+    "Subtitle": "Keep a track of all your progress on your personalized dashboard. Go through the course modules in-depth, and practice key concepts & topics. Utilize available tools to boost your journey to become a top coder.",
+    "backgroundColor": "#10162F",
+    "clipArt": "/assets/marketingBanner/enrolled.svg"
+  },
+  "guest": {
+    "Title": "Start building your future today!",
+    "Subtitle": "We are dedicated to help you build your tech career. Enroll in our program to take the first step towards the future of your dreams. Reach out to us for a free counselling session.",
+    "backgroundColor": "#10162F",
+    "clipArt": "/assets/marketingBanner/guest.svg"
+  }
+}

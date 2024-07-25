@@ -7,10 +7,11 @@ import Button from "../../components/atoms/Button/Button";
 import { FaUser } from "react-icons/fa6";
 import { FaPhoneAlt } from "react-icons/fa";
 import Textarea from "../../components/atoms/TextArea/TextArea";
-import axios from "axios";
 import contactDetails from "../.../../../data/contactDetails.json";
 import { toast } from "react-toastify";
 import restEndPoints from "../../data/restEndPoints.json";
+import { validateMessage, validateName, validatePhoneNumber } from "../../utils/validations";
+import axiosInstance from "../../utils/axiosInstance";
 
 const ContactUs: React.FC = () => {
   const [inputName, setInputName] = useState<string>("");
@@ -30,38 +31,19 @@ const ContactUs: React.FC = () => {
       link: `tel:${contactDetails.phone}`
     },
     {
+      title: "Secondary",
+      value: contactDetails.secondary,
+      icon: <FiPhoneCall />,
+      link: `tel:${contactDetails.secondary}`
+    },
+    {
       title: "Email",
       value: contactDetails.email,
       icon: <MdOutlineEmail />,
       link: `mailto:${contactDetails.email}`
     },
   ];
-  const validateName = (value: string): string | null => {
-    const namePattern = /^[A-Za-z\s]+$/;
-    if (value.trim().length < 3) {
-      return "Name must be at least 3 characters long.";
-    }
-    if (!namePattern.test(value)) {
-      return "Name can only contain alphabets and spaces.";
-    }
-    if (value.trim().length > 50) {
-      return "Name can not have more than 50 characters.";
-    }
-    return null;
-  };
-  const validatePhoneNumber = (value: string): string | null => {
-    const phoneNumberPattern = /^[0-9]{10}$/;
-    if (!phoneNumberPattern.test(value)) {
-      return "Please enter a valid 10-digit mobile number.";
-    }
-    return null;
-  };
-  const validateMessage = (value: string): string | null => {
-    if (value.trim().length > 200) {
-      return "Message can not have more than 200 characters.";
-    }
-    return null;
-  }
+
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
@@ -82,13 +64,11 @@ const ContactUs: React.FC = () => {
     };
 
     try {
-      // USE ENV VARIABLE here with name BACKEND_URL
-      const response = await axios.post(`${import.meta.env.VITE_BACKEND_BASE_URL}/${restEndPoints.requestACallback}`, data);
-      console.log('Response:', response.data);
+      const response = await axiosInstance.post(`/${restEndPoints.requestACall}`, data);
       setFormSubmitted(true);
-      toast.success("We will connect you soon!");
-    } catch (error) {
-      toast.error("Some went wrong. please try again later.");
+      toast.success(response.data.message);
+    } catch (error: any) {
+      toast.error(error.response.data.error);
     }
     finally {
       setLoading(false);

@@ -19,18 +19,6 @@ const PagesName: React.FC = () => {
       return () => clearTimeout(timer);
     }
   }, [location, scrollToCourses]);
-
-  // const handleCoursesClick = () => {
-  //   if (location.pathname === "/") {
-  //     const element = document.getElementById("courses");
-  //     if (element) {
-  //       element.scrollIntoView({ behavior: "smooth" });
-  //     }
-  //   } else {
-  //     setScrollToCourses(true);
-  //     navigate("/");
-  //   }
-  // };
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
@@ -39,7 +27,7 @@ const PagesName: React.FC = () => {
     <div className="pagesContainer">
       <ul>
         <li>
-          <Link to="/" onClick={scrollToTop}>
+          <Link to="/" state={{ isForceFull: true }} onClick={scrollToTop}>
             Home
           </Link>
         </li>
@@ -47,7 +35,7 @@ const PagesName: React.FC = () => {
           <Link to="/course-details">Courses</Link>
         </li>
         <li>
-          <Link to="/values">Our Values</Link>
+          <Link to="/values">About Us</Link>
         </li>
         <li>
           <Link to="/contact" onClick={scrollToTop}>

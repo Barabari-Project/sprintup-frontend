@@ -69,11 +69,6 @@ const ScrollComponent: React.FC = () => {
       const refsArray = headingRefs.current;
 
       if (refsArray[0]) {
-
-        console.log(refsArray[0]?.getBoundingClientRect().top);
-        console.log(`-${refsArray[0]?.getBoundingClientRect().top}px 0px -${window.innerHeight -
-          (refsArray[0]?.getBoundingClientRect().top + refsArray[0]?.getBoundingClientRect().height - 20)
-          }px 0px`);
         const observer = new IntersectionObserver(
           (entries) => {
             entries.forEach((entry) => {
@@ -104,7 +99,7 @@ const ScrollComponent: React.FC = () => {
         };
       } else {
       }
-    }, 500);
+    }, 1000);
   }, []);
 
   return (

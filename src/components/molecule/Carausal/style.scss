@@ -28,7 +28,7 @@
 .hero_carausal {
   
   width: 50%;
-  background-image: url('/assets/carausal-bg-2.png');
+  background-image: url('/assets/carausal-bg.png');
   background-size:cover ;
   background-color: #fff;
   position: relative;
@@ -63,7 +63,8 @@
       height: 350px;
       margin-right: 1.5rem;
       @include xsm-max {
-        height: 355px;
+        height: 343px;
+        width: 85%;
       }
     }
     .slideDescription .desc_list {

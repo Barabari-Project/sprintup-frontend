@@ -1,0 +1,61 @@
+@import "src/styles/_mixins";
+
+.DialogOverlay {
+  background-color: #11111190;
+  position: fixed;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: overlayShow 150ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.DialogContent {
+  background-color: white;
+  border-radius: 6px;
+  box-shadow: hsl(206 22% 7% / 35%) 0px 10px 38px -10px, hsl(206 22% 7% / 20%) 0px 10px 20px -15px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90vw;
+  max-width: 750px;
+  // max-height: 85vh;
+  padding: 1.5rem;
+  z-index: 5000;
+  @include sm-max {
+    padding: 0.8rem;
+    padding-top: 2rem;
+  }
+  animation: contentShow 150ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.DialogContent:focus {
+  outline: none;
+}
+
+@keyframes overlayShow {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes contentShow {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -48%) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+.ticker {
+  animation: tick 700ms cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.contentText {
+  color: #fff;
+}

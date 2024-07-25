@@ -1,18 +1,24 @@
 [
-    {
-        "title": "MERN Full-Stack Course",
-        "curriculum": [
-            "Logical reasoning & DSA",
-            "Frontend development with react.js",
-            "Backend development with node.js",
-            "4 real-world projects"
-        ],
-        "placement": [
-            "2-month internship",
-            "Job guarantee on course completion",
-            "At least 4 mock interviews",
-            "1:1 in-person placement support"            
-        ],
-        "catagory": "Software"
-    }
+  {
+    "title": "Curriculum",
+    "bulletPoints": [
+      "Logical reasoning and DSA",
+      "Frontend with React.js",
+      "Backend with Node.js",
+      "4 real-world projects"
+    ],
+    "desc": "Our curriculum emphasizes foundational skills that will equip you for a lifetime of success and adaptability in your career.",
+    "bottomPoints": ["Open to all disciplines"]
+  },
+  {
+    "title": "Placement",
+    "bulletPoints": [
+      "2-month internship",
+      "4+ mock interviews",
+      "1:1 placement support",
+      "Job guarantee on course completion"
+    ],
+    "desc": "We guarantee 100% placement upon course completion. Our partnership with top tech firms will ensure we find the right job for you.",
+    "bottomPoints": ["15+ Partner companies & growing"]
+  }
 ]

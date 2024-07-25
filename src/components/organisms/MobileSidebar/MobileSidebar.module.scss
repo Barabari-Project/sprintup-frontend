@@ -1,0 +1,132 @@
+@import "/src/styles/_mixins";
+
+.mobileSidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 0;
+  overflow-x: hidden;
+  transition: width 0.8s ease-in-out;
+  z-index: 1000;
+  background-color: #111;
+  color: white;
+  @include lg-min {
+    display: none;
+  }
+
+  &.open {
+    width: 250px;
+  }
+
+  .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 50;
+  }
+
+  .sidebarContent {
+    position: relative;
+    width: 250px;
+    height: 100%;
+    background-color: #fff;
+    z-index: 100;
+    padding: 1rem;
+
+    .closeButton {
+      position: absolute;
+      top: 10px;
+      right: 20px;
+      font-size: 30px;
+      background: none;
+      border: none;
+      color: black;
+      cursor: pointer;
+    }
+
+    .sidebar {
+      display: flex;
+      flex-direction: column;
+      height: inherit;
+
+      &_logo {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin-bottom: 3rem;
+        @include xsm-max {
+          font-size: 0.75rem;
+        }
+        .logo {
+          display: flex;
+          align-items: center;
+          color: black;
+          gap: 0.5rem;
+          img {
+            height: 60px;
+            @include md-max {
+              height: 40px;
+            }
+          }
+          h2 {
+            font-size: 1.5rem;
+            color: var(--primary-text-color);
+            cursor: pointer;
+          }
+        }
+      }
+
+      .navigations {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 100%;
+        list-style: none;
+        gap: 1rem;
+
+        li {
+          a {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: #1f2b37;
+            padding: 0.8rem 1rem;
+            font-size: 1.1rem;
+            border-radius: 0.25rem;
+            border-top-left-radius: 0;
+            border-bottom-left-radius: 0;
+            transition: all 0.3s ease;
+            border-left: 4px solid transparent;
+
+            &:hover {
+              color: #3a10e5;
+            }
+
+            &.active {
+              background-color: rgb(16, 22, 47, 0.04);
+              font-weight: 500;
+              border-left: 4px solid #000;
+              &:hover {
+                color: #1f2b37;
+              }
+            }
+
+            &.disable {
+              pointer-events: none;
+              opacity: 0.5;
+            }
+
+            svg {
+              margin-right: 0.5rem;
+              font-size: 1.4rem;
+            }
+          }
+        }
+      }
+    }
+  }
+}

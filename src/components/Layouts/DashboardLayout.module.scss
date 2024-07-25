@@ -1,0 +1,41 @@
+@import "src/styles/_mixins";
+
+.mainContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+
+  .main {
+    display: flex;
+    width: 100%;
+    max-width: 1880px;
+    padding: 0 6rem;
+    @include md-max {
+      padding: 0 2rem;
+    }
+    .sidebar {
+      height: inherit;
+      position: sticky;
+      top: 72px;
+      left: 0;
+      width: 250px;
+      height: calc(100vh - 72px);
+      @include md-max {
+        display: none;
+      }
+    }
+
+    .content {
+      flex: 1;
+      padding: 1rem;
+      width: 100%;
+      padding-left: 2rem;
+      padding-right: 0;
+
+      @include md-max {
+        padding: 1rem 0;
+      }
+    }
+  }
+}
