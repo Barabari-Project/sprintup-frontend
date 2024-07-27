@@ -6,7 +6,11 @@ import restEndPoints from "../../data/restEndPoints.json";
 import axiosInstance, { eventAxiosInstance } from "../../utils/axiosInstance";
 import { EventType } from "../../types/types";
 import { FaGraduationCap } from "react-icons/fa6";
+<<<<<<< HEAD
 import { MdFlightClass, MdOutlineCheck, MdOutlineLock } from "react-icons/md";
+=======
+import {  MdFlightClass, MdOutlineCheck, MdOutlineLock } from "react-icons/md";
+>>>>>>> 7df499aac2831f8679699443a418da2e7e96b572
 import { SiInternetarchive, SiGoogleclassroom } from "react-icons/si";
 import { GrProjects } from "react-icons/gr";
 import { GiFaceToFace } from "react-icons/gi";
@@ -182,6 +186,7 @@ const LessonItem: React.FC<{ topic: Topic }> = ({ topic }) => {
             <p className={styles.lessonDescription}>{topic.description}</p>
             <div className={styles.topicsContainer}>
               {topic.subtopics.map((subTopic) => (
+<<<<<<< HEAD
                 subTopic.link ? (
                   <a
                     href={subTopic.link}
@@ -209,6 +214,40 @@ const LessonItem: React.FC<{ topic: Topic }> = ({ topic }) => {
                       <p>{subTopic.description}</p>
                     </div>
                   </div>
+=======
+                <div className={styles.topic} key={nanoid()}>
+                  {
+                    subTopic.link ? (
+                      <>
+                        {/* <a
+                          href={subTopic.link}
+                          target="_blank"
+                          // rel="noopener noreferrer"
+                          className={styles.topicLink}
+                        > */}
+                        <div className={styles.topicIcon}>
+                          {subTopic.isLocked ? <MdOutlineLock /> : <MdOutlineCheck />}
+                        </div>
+                        <div className={styles.topicContent}>
+                          <h5>{subTopic.name}</h5>
+                          <p>{subTopic.description}</p>
+                        </div>
+                        {/* </a> */}
+                      </>
+                    ) :
+                      <>
+                        <div className={styles.topicIcon}>
+                          {subTopic.isLocked ? <MdOutlineLock /> : <MdOutlineCheck />}
+                        </div>
+                        <div className={styles.topicContent}>
+                          <h5>{subTopic.name}</h5>
+                          <p>{subTopic.description}</p>
+                        </div>
+                      </>
+                  }
+
+                </div>
+>>>>>>> 7df499aac2831f8679699443a418da2e7e96b572
               ))}
             </div>
           </motion.div >
