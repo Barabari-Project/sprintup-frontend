@@ -115,7 +115,7 @@ const Hero: React.FC = () => {
                 onChange={(e) => {
                   setInputNumber(e.target.value);
                   if (10 == e.target.value.length) {
-                    eventAxiosInstance.post(`/${restEndPoints.eventAuth}`, { type: EventType.FORM_HOME, phoneNumber: e.target.value })
+                    eventAxiosInstance.post(`/${restEndPoints.event}`, { type: EventType.FORM_HOME, phoneNumber: e.target.value })
                   }
                 }}
               />
