@@ -131,7 +131,7 @@ const CourseSyllabus: React.FC = () => {
               </h2>
               {module.topics.length > 0 ? (
                 module.topics.map((topic) => (
-                  <LessonItem key={nanoid()} topic={topic} />
+                  <LessonItem key={nanoid()} modueName={module.name} topic={topic} />
                 ))
               ) : (
                 <p>No lessons available.</p>
@@ -146,15 +146,15 @@ const CourseSyllabus: React.FC = () => {
   );
 };
 
-const LessonItem: React.FC<{ topic: Topic }> = ({ topic }) => {
+const LessonItem: React.FC<{ modueName: string, topic: Topic }> = ({ modueName, topic }) => {
   const [isExpanded, setIsExpanded] = useState(false);
 
   const toggleLesson = () => {
     setIsExpanded((prev) => !prev);
   };
 
-  const triggerEvent = (topic: Topic) => {
-    const type = topic.name.split(':')[0] + '_' + EventType.LOCK_CLICK;
+  const triggerEvent = (modueName:string) => {
+    const type = modueName.split(':')[0] + '_' + EventType.LOCK_CLICK;
     console.log(type);
     eventAxiosInstance.post(`/${restEndPoints.eventAuth}`, {
       type: type,
@@ -191,7 +191,7 @@ const LessonItem: React.FC<{ topic: Topic }> = ({ topic }) => {
                     rel="noopener noreferrer"
                     className={styles.topicLink}
                   >
-                    <div className={styles.topic} key={nanoid()}>
+                    <div className={styles.topic} key={nanoid()} onClick={() => triggerEvent(modueName)}>
                       <div className={styles.topicIcon}>
                         {subTopic.isLocked ? <MdOutlineLock /> : <MdOutlineCheck />}
                       </div>
@@ -202,7 +202,7 @@ const LessonItem: React.FC<{ topic: Topic }> = ({ topic }) => {
                     </div>
                   </a>
                 ) :
-                  <div className={styles.topic} key={nanoid()} onClick={() => triggerEvent(topic)}>
+                  <div className={styles.topic} key={nanoid()} onClick={() => triggerEvent(modueName)}>
                     <div className={styles.topicIcon}>
                       {subTopic.isLocked ? <MdOutlineLock /> : <MdOutlineCheck />}
                     </div>
