@@ -9,5 +9,6 @@
     "eventAuth": "event-auth",
     "event": "event",
     "course": "course",
-    "getFaqByType": "faqs"
+    "getFaqByType": "faqs",
+    "increaseProgress" : "auth/increase-progress"
 }

@@ -15,7 +15,9 @@ import { MdExpandMore } from "react-icons/md";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import Lottie from "react-lottie-player";
-import loaderData from "../../Lottie/loaderSmall.json"
+import loaderData from "../../Lottie/loaderSmall.json";
+import { setUserDetails } from "../../redux/slices/UserSliice";
+import { useDispatch } from "react-redux";
 
 type SubTopic = {
   name: string;
@@ -62,8 +64,6 @@ const CourseSyllabus: React.FC = () => {
       setLoading(false);
     }
   };
-
-
 
   return (
     <div className={styles.courseSyllabus}>
@@ -149,11 +149,13 @@ const CourseSyllabus: React.FC = () => {
 const LessonItem: React.FC<{ modueName: string, topic: Topic }> = ({ modueName, topic }) => {
   const [isExpanded, setIsExpanded] = useState(false);
 
+  const dispatch = useDispatch();
+
   const toggleLesson = () => {
     setIsExpanded((prev) => !prev);
   };
 
-  const triggerEvent = (modueName:string) => {
+  const triggerEvent = (modueName: string) => {
     const type = modueName.split(':')[0] + '_' + EventType.LOCK_CLICK;
     console.log(type);
     eventAxiosInstance.post(`/${restEndPoints.eventAuth}`, {
@@ -161,9 +163,25 @@ const LessonItem: React.FC<{ modueName: string, topic: Topic }> = ({ modueName, 
     });
   }
 
+  const increaseProgress = async () => {
+    const response = await axiosInstance.post(`/${restEndPoints.increaseProgress}`);
+    console.log(response.data)
+    const studentDetails = response.data.student;
+    dispatch(setUserDetails({
+      enrolled: studentDetails.enrolled ? true : false,
+      phoneNumber: studentDetails.phoneNumber,
+      name: studentDetails.name,
+      progress: studentDetails.enrolled
+        ? studentDetails.enrolled.progress
+        : 0,
+      avatar: studentDetails.avatar,
+    }));
+    toast.success(response.data.message);
+  }
+
   return (
     <div className={styles.lessonContainer}>
-      <h3
+      <h6
         className={`${styles.lessonTitle} ${isExpanded ? styles.expanded : ""}`}
         onClick={toggleLesson}
       >
@@ -171,7 +189,7 @@ const LessonItem: React.FC<{ modueName: string, topic: Topic }> = ({ modueName, 
         <span className={styles.expandIcon}>
           <MdExpandMore />
         </span>
-      </h3>
+      </h6>
       <AnimatePresence>
         {isExpanded && (
           <motion.div
@@ -191,7 +209,7 @@ const LessonItem: React.FC<{ modueName: string, topic: Topic }> = ({ modueName, 
                     rel="noopener noreferrer"
                     className={styles.topicLink}
                   >
-                    <div className={styles.topic} key={nanoid()} onClick={() => triggerEvent(modueName)}>
+                    <div className={styles.topic} key={nanoid()} onClick={() => { triggerEvent(modueName); increaseProgress(); }}>
                       <div className={styles.topicIcon}>
                         {subTopic.isLocked ? <MdOutlineLock /> : <MdOutlineCheck />}
                       </div>

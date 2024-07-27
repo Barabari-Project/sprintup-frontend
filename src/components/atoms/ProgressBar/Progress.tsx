@@ -30,7 +30,7 @@ const Progress: React.FC<ProgressProps> = ({ progress, enrolled = false }) => {
     <div className={styles.progressBar}>
       <div
         className={styles.progress}
-        style={{ "--progress": `${progress}` } as React.CSSProperties}
+        style={{ "--progress": `${progress}%` } as React.CSSProperties}
       ></div>
       <span
         className={styles.progressValue}
