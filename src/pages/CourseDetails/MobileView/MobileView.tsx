@@ -40,7 +40,6 @@ const MobileView: React.FC = () => {
             rotate: [0, -100, 0],
           },
         }}
-        // loop={true}
         spaceBetween={50}
         slidesPerView={1}
         navigation={true}

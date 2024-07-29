@@ -157,7 +157,6 @@ const LessonItem: React.FC<{ modueName: string, topic: Topic }> = ({ modueName, 
 
   const triggerEvent = (modueName: string) => {
     const type = modueName.split(':')[0] + '_' + EventType.LOCK_CLICK;
-    console.log(type);
     eventAxiosInstance.post(`/${restEndPoints.eventAuth}`, {
       type: type,
     });

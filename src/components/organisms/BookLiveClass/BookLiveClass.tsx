@@ -161,8 +161,8 @@ const BookLiveClassForm: React.FC = () => {
               <Button
                 text={
                   formSubmitted
-                    ? "You have Booked Class!"
-                    : "You have booked a Class!"
+                    ? "You have booked a Class!"
+                    : "Book a Live Class for Free"
                 }
                 style={{ width: "100%", marginTop: "0.8rem" }}
                 disabled={formSubmitted}

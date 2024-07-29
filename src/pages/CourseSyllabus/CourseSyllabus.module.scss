@@ -97,23 +97,22 @@
     }
 
     .lessonContainer {
-      // background-color: #fcf2ef;
       margin-bottom: 1rem;
       padding: 1rem;
-      // border: 1px solid #bdbdbd;
       border-radius: 0.5rem;
       overflow: hidden;
+
+      &:last-of-type {
+        margin-bottom: 0;
+      }
 
       .lessonTitle {
         color: #10162f;
         display: flex;
-        // font-size: 1.17rem;
         justify-content: space-between;
+        font-weight: 500;
         align-items: center;
         cursor: pointer;
-        @include xsm-max {
-          font-size: 0.9rem;
-        }
 
         .expandIcon {
           font-size: 1.5rem;
@@ -140,18 +139,23 @@
           display: flex;
           width: 100%;
           flex-direction: column;
-          gap: 2rem;
         }
-        a{
-          color:  #10162f;
-          &:hover{
-            color: #3a10e5;
-          }
+
+        a {
+          color: #10162f;
         }
+
         .topic {
           display: flex;
           align-items: center;
           gap: 0.4rem;
+          padding-block: 1rem;
+          padding-left: 0.5rem;
+          transition: 0.3s ease-in-out;
+
+          &:hover {
+            background-color: rgb(16, 22, 47, 0.04);
+          }
 
           .topicIcon {
             display: flex;
@@ -160,7 +164,7 @@
             border: 1px solid #000;
             // padding: 0.5rem;
             border-radius: 50%;
-            width: 40px;
+            min-width: 40px;
             height: 40px;
             cursor: pointer;
 

@@ -25,6 +25,7 @@ import loader from "./Lottie/loader.json";
 import TermsofUse from "./pages/TermsofUse/TermsofUse";
 import PrivacyPolicy from "./pages/PrivacyPolicy/PrivacyPolicy";
 import ErrorPage from "./pages/ErrorPage/ErrorPage";
+
 function App() {
   const dispatch = useDispatch();
   const [initialLoader, setInitialLoader] = useState(true);

@@ -8,41 +8,6 @@ import { SafeHtmlComponent } from "../../../components/molecule/Carausal/Carausa
 const ScrollComponent: React.FC = () => {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
   const headingRefs = useRef<(HTMLDivElement | null)[]>([]);
-  // const [viewportHeight, setViewportHeight] = useState(window.innerHeight);
-
-  // const calculateNewHeight = (height: number) => {
-  //   const subtractionValue = height > 965 ? 50 : 40;
-  //   const refsArray = headingRefs.current;
-  //   console.log(refsArray[0].getBoundingClientRect().top,refsArray[0].getBoundingClientRect().bottom);
-  //   return height / 2 - subtractionValue;
-  // };
-
-  // useEffect(() => {
-  //   // Example usage of map on headingRefs
-  //   const refsArray = headingRefs.current;
-  //   refsArray.map((ref, index) => {
-  //     if (ref) {
-  //       console.log(`Ref ${index}:`, ref);
-  //       console.log(ref.getBoundingClientRect());
-  //     }
-  //     return ref;
-  //   });
-  //   // console.log(window.innerHeight);
-  //   // console.log(refsArray[0].getBoundingClientRect().top,window.innerHeight-(refsArray[0].getBoundingClientRect().top+refsArray[0].getBoundingClientRect().height));
-  //   // console.log(refsArray[0].getBoundingClientRect().top,refsArray[0].getBoundingClientRect().bottom);
-  // }, []);
-
-  // useEffect(() => {
-  //   const handleResize = () => {
-  //     setViewportHeight(window.innerHeight);
-  //   };
-
-  //   window.addEventListener('resize', handleResize);
-
-  //   return () => {
-  //     window.removeEventListener('resize', handleResize);
-  //   };
-  // }, []);
 
   const handleScroll = () => {
     const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
@@ -51,9 +16,6 @@ const ScrollComponent: React.FC = () => {
     if (scrollTop + windowHeight >= documentHeight) {
       setActiveIndex(8);
     } else {
-      // if (activeIndex == 8) {
-      //   setActiveIndex(7);
-      // }
     }
   };
 
