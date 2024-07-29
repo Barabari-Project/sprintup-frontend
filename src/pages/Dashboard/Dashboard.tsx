@@ -19,6 +19,7 @@ import { EventType } from "../../types/types";
 const Dashboard: React.FC = () => {
   const { user } = useSelector((state: RootState) => state.user);
   const [talkToUsModalOpen, setTalkToUsModalOpen] = useState<boolean>(false);
+  console.log(user);
   if (!user) {
     return null;
   }
@@ -115,7 +116,7 @@ const Dashboard: React.FC = () => {
                 text="Request a Callback!"
                 onClick={() => {
                   setTalkToUsModalOpen(true);
-                  eventAxiosInstance.post(`/${restEndPoints.eventAuth}`, { type: EventType.REQUEST_A_CALLBACK_CLICK });
+                  eventAxiosInstance.post(`/${restEndPoints.eventAuth}`, { type: EventType.NOT_SURE_CLICK });
                 }}
                 className={styles.availableCoursesCardCta}
               />

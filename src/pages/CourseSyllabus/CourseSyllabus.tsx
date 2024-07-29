@@ -15,7 +15,7 @@ import { MdExpandMore } from "react-icons/md";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import Lottie from "react-lottie-player";
-import loaderData from "../../Lottie/loaderSmall.json";
+import loaderData from "../../Lottie/loaderSmall.json"
 import { setUserDetails } from "../../redux/slices/UserSliice";
 import { useDispatch } from "react-redux";
 
@@ -164,24 +164,26 @@ const LessonItem: React.FC<{ modueName: string, topic: Topic }> = ({ modueName, 
   }
 
   const increaseProgress = async () => {
-    const response = await axiosInstance.post(`/${restEndPoints.increaseProgress}`);
-    console.log(response.data)
-    const studentDetails = response.data.student;
-    dispatch(setUserDetails({
-      enrolled: studentDetails.enrolled ? true : false,
-      phoneNumber: studentDetails.phoneNumber,
-      name: studentDetails.name,
-      progress: studentDetails.enrolled
-        ? studentDetails.enrolled.progress
-        : 0,
-      avatar: studentDetails.avatar,
-    }));
-    toast.success(response.data.message);
+    try {
+      const response = await axiosInstance.post(`/${restEndPoints.increaseProgress}`);
+
+      const studentDetails = response.data.student;
+      dispatch(setUserDetails({
+        enrolled: studentDetails.enrolled ? true : false,
+        phoneNumber: studentDetails.phoneNumber,
+        name: studentDetails.name,
+        progress: studentDetails.enrolled
+          ? studentDetails.enrolled.progress
+          : 0,
+        avatar: studentDetails.avatar,
+      }));
+    } catch (error) {
+    }
   }
 
   return (
     <div className={styles.lessonContainer}>
-      <h6
+      <h3
         className={`${styles.lessonTitle} ${isExpanded ? styles.expanded : ""}`}
         onClick={toggleLesson}
       >
@@ -189,7 +191,7 @@ const LessonItem: React.FC<{ modueName: string, topic: Topic }> = ({ modueName, 
         <span className={styles.expandIcon}>
           <MdExpandMore />
         </span>
-      </h6>
+      </h3>
       <AnimatePresence>
         {isExpanded && (
           <motion.div
