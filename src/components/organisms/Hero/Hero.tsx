@@ -166,7 +166,7 @@ const Hero: React.FC = () => {
                   text={
                     formSubmitted
                       ? "You have Booked Class!"
-                      : "Book a Live Class for Free"
+                      : "You have booked a Class!"
                   }
                   style={{ width: "100%", marginTop: "0.8rem" }}
                   disabled={formSubmitted}
