@@ -77,7 +77,6 @@ const Login = () => {
       toast.success(response.data.message);
       navigate("/dashboard");
     } catch (err: any) {
-      console.log(err);
       if (404 == err.response.status) {
         toast.info(err.response.data.error);
         navigate("/signup");

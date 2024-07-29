@@ -45,8 +45,6 @@ const MobileView: React.FC = () => {
         slidesPerView={1}
         navigation={true}
         pagination={{ clickable: true }}
-        // onSwiper={(swiper) => console.log(swiper)}
-        // onSlideChange={() => console.log("slide change")}
       >
         {courseModulesDetails.map((module, index) => {
           const sanitizedHtml = SafeHtmlComponent(module.title as string);

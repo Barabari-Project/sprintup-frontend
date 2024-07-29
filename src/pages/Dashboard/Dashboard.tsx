@@ -19,7 +19,6 @@ import { EventType } from "../../types/types";
 const Dashboard: React.FC = () => {
   const { user } = useSelector((state: RootState) => state.user);
   const [talkToUsModalOpen, setTalkToUsModalOpen] = useState<boolean>(false);
-  console.log(user);
   if (!user) {
     return null;
   }
