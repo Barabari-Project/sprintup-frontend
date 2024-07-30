@@ -37,7 +37,7 @@ function App() {
         const studentDetails = response.data.student;
         dispatch(
           setUserDetails({
-            enrolled: studentDetails.enrolled ? true : false,
+            enrolled: studentDetails.isEnrolled,
             phoneNumber: studentDetails.phoneNumber,
             name: studentDetails.name,
             progress: studentDetails.enrolled

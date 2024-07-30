@@ -1,4 +1,4 @@
-import React, { TextareaHTMLAttributes } from "react";
+import React, { TextareaHTMLAttributes, useEffect, useRef } from "react";
 import styles from "./style.module.scss";
 
 interface TextareaProps extends TextareaHTMLAttributes<HTMLTextAreaElement> {
@@ -12,6 +12,14 @@ const Textarea: React.FC<TextareaProps> = ({ errorMessage, label, required, cust
   const handleTextareaChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
     if (onChange) onChange(event);
   };
+
+  const textareaRef = useRef<HTMLTextAreaElement>(null);
+
+  useEffect(() => {
+    if (textareaRef.current) {
+      setTimeout(() => textareaRef.current?.blur(), 0);
+    }
+  }, []);
 
   return (
     <div className={styles.appTextareaContainer}>
