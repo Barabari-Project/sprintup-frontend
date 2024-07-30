@@ -38,53 +38,54 @@ const MobileNavbar: React.FC = () => {
   };
 
   return (
-      <div className={`mobile-navbar ${menuOpen ? "open" : ""}`}>
-        <div className="hamburgerIcon" onClick={toggleMenu}>
-          {menuOpen ? (
-            <i className="fa-solid fa-xmark"></i>
-          ) : (
-            <i className="fa-solid fa-bars"></i>
-          )}
-        </div>
-        <nav className={`mobile-nav ${menuOpen ? "open" : ""}`}>
-          <ul>
+    <div className={`mobile-navbar ${menuOpen ? "open" : ""}`}>
+      <div className="hamburgerIcon" onClick={toggleMenu}>
+        {menuOpen ? (
+          <i className="fa-solid fa-xmark"></i>
+        ) : (
+          <i className="fa-solid fa-bars"></i>
+        )}
+      </div>
+      <nav className={`mobile-nav ${menuOpen ? "open" : ""}`}>
+        <ul>
           <li>
-                <NavLink
-                  to={user ? "/dashboard" : "/"}
-                  className={({ isActive }) => (isActive ? "active" : "")}
-                  onClick={scrollToTop}
-                >
-                  {user ? "My Home" : "Home"}
-                </NavLink>
-              </li>
-            <li>
-              <NavLink
-                onClick={scrollToTop}
-                to="/course-details"
-                className={({ isActive }) => (isActive ? "active" : "")}
-              >
-                Courses
-              </NavLink>
-            </li>
-            <li>
-              <NavLink
-                onClick={scrollToTop}
-                to="/values"
-                className={({ isActive }) => (isActive ? "active" : "")}
-              >
-                About Us
-              </NavLink>
-            </li>
-            <li>
-              <NavLink
-                onClick={closeMenu}
-                to="/contact"
-                className={({ isActive }) => (isActive ? "active" : "")}
-              >
-                Contact Us
-              </NavLink>
-            </li>
-          </ul>
+            <NavLink
+              to={user ? "/dashboard" : "/"}
+              className={({ isActive }) => (isActive ? "active" : "")}
+              onClick={scrollToTop}
+            >
+              {user ? "My Home" : "Home"}
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              onClick={scrollToTop}
+              to="/course-details"
+              className={({ isActive }) => (isActive ? "active" : "")}
+            >
+              Courses
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              onClick={scrollToTop}
+              to="/values"
+              className={({ isActive }) => (isActive ? "active" : "")}
+            >
+              About Us
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              onClick={closeMenu}
+              to="/contact"
+              className={({ isActive }) => (isActive ? "active" : "")}
+            >
+              Contact Us
+            </NavLink>
+          </li>
+        </ul>
+        {user &&
           <div className="header_btns">
             <Link to="/login" className="header_btn login  mobile">
               Log In
@@ -93,8 +94,9 @@ const MobileNavbar: React.FC = () => {
               Sign Up
             </Link>
           </div>
-        </nav>
-      </div>
+        }
+      </nav>
+    </div>
   );
 };
 
