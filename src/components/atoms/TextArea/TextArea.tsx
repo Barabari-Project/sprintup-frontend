@@ -5,9 +5,10 @@ interface TextareaProps extends TextareaHTMLAttributes<HTMLTextAreaElement> {
   label?: string;
   customValidation?: (value: string) => string | null;
   errorMessage?: string | null;
+  initialFocus?: boolean;
 }
 
-const Textarea: React.FC<TextareaProps> = ({ errorMessage, label, required, customValidation, onChange, ...props }) => {
+const Textarea: React.FC<TextareaProps> = ({ errorMessage, label, required, customValidation, onChange, initialFocus, ...props }) => {
 
   const handleTextareaChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
     if (onChange) onChange(event);
@@ -16,8 +17,9 @@ const Textarea: React.FC<TextareaProps> = ({ errorMessage, label, required, cust
   const textareaRef = useRef<HTMLTextAreaElement>(null);
 
   useEffect(() => {
-    if (textareaRef.current) {
+    if (textareaRef.current && initialFocus == false) {
       setTimeout(() => textareaRef.current?.blur(), 0);
+    } else {
     }
   }, []);
 
@@ -29,7 +31,7 @@ const Textarea: React.FC<TextareaProps> = ({ errorMessage, label, required, cust
         </label>
       )}
       <div className={styles.textareaBar}>
-        <textarea
+        <textarea ref={textareaRef}
           {...props} onChange={handleTextareaChange} className={errorMessage ? `${styles.error}` : ""} />
       </div>
       {errorMessage && <p className={styles.errorMessage}>{errorMessage}</p>}

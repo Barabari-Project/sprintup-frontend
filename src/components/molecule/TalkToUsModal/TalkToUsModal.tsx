@@ -91,6 +91,7 @@ const TalkToUsModal: React.FC<TalkToUsModalProps> = ({
             disabled={true}
           />
           <Textarea
+            initialFocus={false}
             label="Your Message"
             value={messageText}
             onChange={(e) => setMessageText(e.target.value)}
@@ -99,6 +100,7 @@ const TalkToUsModal: React.FC<TalkToUsModalProps> = ({
             autoComplete="off"
             placeholder="Message (max 200 characters)"
             errorMessage={messageTextError}
+            autoFocus={false}
           />
           {isLoading ? (
             <div className={styles.form_loader}>

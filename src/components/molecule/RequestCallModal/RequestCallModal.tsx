@@ -68,6 +68,7 @@ const RequestCallModal: React.FC<RequestCallModal> = ({ onClose }) => {
         <form onSubmit={handleSubmit} style={{ margin: "auto" }}>
           <Input
             label="Full Name"
+            initialFocus={false}
             icon={<FaUser />}
             placeholder="Full Name"
             value={inputName}
@@ -78,6 +79,7 @@ const RequestCallModal: React.FC<RequestCallModal> = ({ onClose }) => {
           <Input
             label="Mobile Number"
             icon={<FaPhoneAlt />}
+            initialFocus={false}
             type="tel"
             placeholder="10 digits Mobile Number"
             value={inputNumber}
