@@ -11,7 +11,6 @@ import restEndPoints from "../../data/restEndPoints.json";
 import axiosInstance from "../../utils/axiosInstance";
 import { useDispatch } from "react-redux";
 import { setUserDetails } from "../../redux/slices/UserSliice";
-import axios from "axios";
 
 const Login = () => {
   const [inputNumber, setInputNumber] = useState<string>("");
