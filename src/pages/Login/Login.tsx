@@ -93,12 +93,10 @@ const Login = () => {
   };
 
   const onChangecaptcha = async (value: string | null) => {
-    console.log(value);
-    const response = await axios.post("https://www.google.com/recaptcha/api/siteverify", {
-      secert: import.meta.env.VITE_RECAPTCHA_SITE_KEY,
-      response: value
-    })
-    console.log(response);
+    // const response = await axios.post("https://www.google.com/recaptcha/api/siteverify", {
+    //   secert: import.meta.env.VITE_RECAPTCHA_SITE_KEY,
+    //   response: value
+    // })
     if (value) {
       setCaptchaVerified(true);
     } else {
