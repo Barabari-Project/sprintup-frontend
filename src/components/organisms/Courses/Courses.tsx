@@ -4,16 +4,17 @@ import { NavLink } from "react-router-dom";
 import { TfiBook } from "react-icons/tfi";
 import cardDetails from "../../../data/courseInfo.json";
 import { FaRegHandshake } from "react-icons/fa6";
+import { SafeHtmlComponent } from "../../molecule/Carausal/Carausal";
 
 const Courses: React.FC = () => {
   return (
     <>
       <section className={styles.courcesSection} id="courses">
         <div className={styles.courcesContainer}>
-          <h5 className={styles.sectionTitle}>Course Overview</h5>
+          <h5 className={styles.sectionTitle}>Our Courses</h5>
           <p className={styles.section_sub_title}>
-            <span>In-Classroom </span>
-            MERN Full-Stack Web Development Course
+            <span>Job-linked </span>
+            Upskilling Courses
           </p>
           <div className={styles.courseCardContainer}>
             {cardDetails.map((card, idx) => {
@@ -21,7 +22,7 @@ const Courses: React.FC = () => {
                 <div className={styles.availableCoursesCard}>
                   <div className={styles.cardHeader}>Job Path</div>
                   <div className={styles.content}>
-                    <h2 className={styles.cardHeading}>{card.title}</h2>
+                    <h3 className={styles.cardHeading}>{SafeHtmlComponent(card.title)}</h3>
                     <p className={styles.cardDesc}>{card.desc}</p>
                     <div className={styles.bulletPointsBox}>
                       {card.bulletPoints.map((point) => {
@@ -63,8 +64,8 @@ const Courses: React.FC = () => {
           </h1>
           <div className={styles.courseHighlights__points}>
             <div className={styles.courseHighlights__point}>
-              <h2 className={styles.title}>7 Months</h2>
-              <h4 className={styles.subTitle}>Duration</h4>
+              <h2 className={styles.title}>Top Expert</h2>
+              <h4 className={styles.subTitle}>Instructors</h4>
             </div>
 
             <div className={styles.courseHighlights__point}>
@@ -73,7 +74,7 @@ const Courses: React.FC = () => {
             </div>
             <div className={styles.courseHighlights__point}>
               <h2 className={styles.title}>100% Placement</h2>
-              <h4 className={styles.subTitle}>Guarantee</h4>
+              <h4 className={styles.subTitle}>Assistance</h4>
             </div>
           </div>
         </div>

@@ -55,7 +55,7 @@
       h2 {
         font-size: 2rem;
         font-family: "Roboto", sans-serif;
-        font-weight: 700;
+        font-weight: 500;
         color: var(--primary-text-color);
         @include xsm-max {
           font-size: 1.5rem;
@@ -68,7 +68,7 @@
       h3 {
         font-size: 1.3rem;
         // letter-spacing: 0.05rem;
-        font-weight: 500;
+        font-weight: 400;
         color: var(--primary-text-color);
         font-family: "Roboto", sans-serif;
         @include xsm-max {

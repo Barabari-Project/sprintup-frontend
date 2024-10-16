@@ -88,11 +88,11 @@ const Hero: React.FC = () => {
         <div className="hero-right">
           <div className="hero-form">
             <div className="form-title">
-              <h2>Build Your Tech Career</h2>
+              <h2>Build Your Career With Us</h2>
             </div>
             <div className="form-subtitle">
-              <h3>Best full-stack course designed</h3>
-              <h3> by IIT & BITS alums</h3>
+              <h3>Top courses designed by</h3>
+              <h3>IIT & BITS alums</h3>
             </div>
             <form onSubmit={handleSubmit}>
               <Input
@@ -119,7 +119,7 @@ const Hero: React.FC = () => {
                   }
                 }}
               />
-              <div className="hero-form-slots">
+              {/* <div className="hero-form-slots">
                 <div
                   className={`timeSlot ${timeSlot === 0 && "active"}`}
                   onClick={() => {
@@ -150,7 +150,7 @@ const Hero: React.FC = () => {
                   <p>{demoSessionSchedule[1]["date-fe"]}</p>
                   <p>{demoSessionSchedule[1].time}</p>
                 </div>
-              </div>
+              </div> */}
               {isLoading ? (
                 <div className="form-loader">
                   {/* <Lottie
@@ -165,8 +165,8 @@ const Hero: React.FC = () => {
                 <Button
                   text={
                     formSubmitted
-                      ? "You have booked a Class!"
-                      : "Book a Live Class for Free"
+                      ? "We will contact you soon."
+                      : "Request a Callback"
                   }
                   style={{ width: "100%", marginTop: "0.8rem" }}
                   disabled={formSubmitted}
