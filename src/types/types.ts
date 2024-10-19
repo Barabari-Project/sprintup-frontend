@@ -87,3 +87,18 @@ export interface FAQ {
   type: FAQType;
   faq: FAQItem[];
 }
+
+export interface ProgramCard {
+  cardTitle: string;
+  desc: string;
+  bulletPoints:  string[];
+  highlightedPoints: {
+    point: string;
+    icon: string;
+  }[],
+}
+export interface Program {
+  title: string;
+  sectionBackground: string;
+  cards:  ProgramCard[];
+}

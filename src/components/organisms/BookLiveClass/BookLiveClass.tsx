@@ -88,8 +88,8 @@ const BookLiveClassForm: React.FC = () => {
     <section className="book-a-classd-section">
       <div className="signUpform">
         <div className="formContainer">
-          <h2>Book a Live Class</h2>
-          <h3>New batches starting in August & September</h3>
+          <h2>Book a FREE Demo Class</h2>
+          <h3>New batches starting this month ⏰</h3>
           <form onSubmit={handleSubmit} style={{ margin: "auto" }}>
             <Input
               label="Full Name"
@@ -115,7 +115,7 @@ const BookLiveClassForm: React.FC = () => {
                 }
               }}
             />
-            <div className="form-slots">
+            {/* <div className="form-slots">
               <div
                 className={`timeSlot ${timeSlot === 0 && "active"}`}
                 onClick={() => {
@@ -146,7 +146,7 @@ const BookLiveClassForm: React.FC = () => {
                 <p>{demoSessionSchedule[1]["date-fe"]}</p>
                 <p>{demoSessionSchedule[1].time}</p>
               </div>
-            </div>
+            </div> */}
             {isLoading ? (
               <div className="form-loader">
                 {/* <Lottie
@@ -162,7 +162,7 @@ const BookLiveClassForm: React.FC = () => {
                 text={
                   formSubmitted
                     ? "You have booked a Class!"
-                    : "Book a Live Class for Free"
+                    : "Book a FREE Demo Class"
                 }
                 style={{ width: "100%", marginTop: "0.8rem" }}
                 disabled={formSubmitted}

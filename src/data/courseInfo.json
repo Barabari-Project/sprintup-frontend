@@ -1,6 +1,6 @@
 [
   {
-    "title": "Curriculum",
+    "title": "Data Science <br/>& Analytics Program",
     "bulletPoints": [
       "Logical reasoning and DSA",
       "Frontend with React.js",
@@ -8,17 +8,28 @@
       "4 real-world projects"
     ],
     "desc": "Our curriculum emphasizes foundational skills that will equip you for a lifetime of success and adaptability in your career.",
-    "bottomPoints": ["Open to all disciplines"]
+    "bottomPoints": ["Open to all disciplines", "15+ Partner companies & growing"]
   },
   {
-    "title": "Placement",
+    "title": "MERN Full Stack <br/>Web Development Program",
     "bulletPoints": [
       "2-month internship",
       "4+ mock interviews",
       "1:1 placement support",
       "Job guarantee on course completion"
     ],
-    "desc": "We guarantee 100% placement upon course completion. Our partnership with top tech firms will ensure we find the right job for you.",
-    "bottomPoints": ["15+ Partner companies & growing"]
+    "desc": "Our curriculum emphasizes foundational skills that will equip you for a lifetime of success and adaptability in your career.",
+    "bottomPoints": ["15+ Partner companies & growing", "15+ Partner companies & growing"]
+  },
+  {
+    "title": "Digital Marketing <br/>With AI Program",
+    "bulletPoints": [
+      "2-month internship",
+      "4+ mock interviews",
+      "1:1 placement support",
+      "Job guarantee on course completion"
+    ],
+    "desc": "Our curriculum emphasizes foundational skills that will equip you for a lifetime of success and adaptability in your career.",
+    "bottomPoints": ["15+ Partner companies & growing", "15+ Partner companies & growing"]
   }
 ]

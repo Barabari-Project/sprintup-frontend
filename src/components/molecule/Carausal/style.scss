@@ -47,6 +47,7 @@
     h2 {
       // background-color: rgb(255, 240, 229);
       font-size: 3.5rem;
+      line-height: 1;
       font-family: "Roboto", sans-serif;
       font-weight: 800;
       display: inline;
@@ -74,10 +75,10 @@
       gap: 0.8rem;
       li {
         padding: .4rem;
-        font-weight: 600;
+        font-weight: 400;
         font-size: 0.875rem;
         font-family: "Roboto", sans-serif;
-        // color: rgb(255, 240, 229);
+        letter-spacing: 0.5px;
         white-space: wrap;
         text-rendering: geometricPrecision;
         line-height: 18px;
