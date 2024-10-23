@@ -5,7 +5,6 @@ export interface Course {
   catagory: string;
 }
 
-
 export interface WhyChooseUsCardDetails {
   title: string;
   subtitle: string;
@@ -64,13 +63,13 @@ export enum EventType {
 }
 
 export enum FAQType {
-  Program = 'Program',
-  Curriculum = 'Curriculum',
-  Teaching = 'Teaching',
-  EntranceTest = 'Entrance Test',
-  Mentors = 'Mentors',
-  PlacementSupport = 'Placement Support',
-  EntranceFees = 'Entrance Fees'
+  Program = "Program",
+  Curriculum = "Curriculum",
+  Teaching = "Teaching",
+  EntranceTest = "Entrance Test",
+  Mentors = "Mentors",
+  PlacementSupport = "Placement Support",
+  EntranceFees = "Entrance Fees",
 }
 
 export interface FAQItem {
@@ -91,14 +90,24 @@ export interface FAQ {
 export interface ProgramCard {
   cardTitle: string;
   desc: string;
-  bulletPoints:  string[];
+  bulletPoints: string[];
   highlightedPoints: {
     point: string;
     icon: string;
-  }[],
+  }[];
 }
 export interface Program {
   title: string;
   sectionBackground: string;
-  cards:  ProgramCard[];
+  cards: ProgramCard[];
+  action: string;
+}
+
+export interface DashboardAvailableCoursesData {
+  courseName: string;
+  courseDesc: string;
+  coursePoints: {
+    point: string;
+    icon: string;
+  }[];
 }

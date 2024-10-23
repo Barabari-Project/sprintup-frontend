@@ -38,11 +38,29 @@ const MobileSidebar: React.FC<MobileSidebarProps> = ({ isOpen, close }) => {
             </li>
             <li>
               <NavLink
-                to="/course-syllabus"
+                to="/course-syllabus/data-analytics"
                 className={({ isActive }) => (isActive ? styles.active : "")}
               >
                 <GoTasklist />
-                Course Syllabus
+                Data Analytics
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to="/course-syllabus/mern-full-stack"
+                className={({ isActive }) => (isActive ? styles.active : "")}
+              >
+                <GoTasklist />
+                MERN Full Stack
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to="/course-syllabus/digital-marketing"
+                className={({ isActive }) => (isActive ? styles.active : "")}
+              >
+                <GoTasklist />
+                Digital Marketing
               </NavLink>
             </li>
             <li>

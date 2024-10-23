@@ -19,7 +19,10 @@ const CourseDetails: React.FC = () => {
             <div className={styles.courseCardContainer}>
               {section.cards.map((card, index) => {
                 return (
-                  <div key={`card-${idx}${index}`} className={styles.availableCoursesCard}>
+                  <div
+                    key={`card-${idx}${index}`}
+                    className={styles.availableCoursesCard}
+                  >
                     <div className={styles.cardHeader}>Job Path</div>
                     <div className={styles.content}>
                       <h3 className={styles.cardHeading}>
@@ -51,7 +54,7 @@ const CourseDetails: React.FC = () => {
                 );
               })}
             </div>
-            <NavLink to="/course-details" style={{ color: "#000" }}>
+            <NavLink to={section.action} style={{ color: "#000" }}>
               <div className={styles.exploreButton}>
                 <h3>Know More</h3>
               </div>
