@@ -36,12 +36,14 @@
       flex: 1;
 
       h2 {
-        font-size: 1.4rem;
+        font-weight: 500;
+        font-size: 1.8rem;
         margin-bottom: 1rem;
         color: #ffd500;
       }
       p {
-        font-weight: 500;
+        font-size: 1.1rem;
+        font-weight: 400;
         line-height: 1.5;
         letter-spacing: 0.2px;
       }
@@ -144,11 +146,7 @@
 
     .availableCoursesContainer {
       width: 100%;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: flex-start;
-      align-items: center;
-      gap: 3rem;
+      max-width: 100%;
       @include sm-max {
         justify-content: center;
       }
@@ -157,10 +155,10 @@
         width: 100%;
         max-width: 300px;
         border: 1px solid #000;
-        min-height: 332px;
+        min-height: 340px;
         border-radius: 0.25rem;
         transition: all 0.3s ease-in-out;
-        display: flex;
+        display: flex !important;
         flex-direction: column;
         padding: 1rem;
 
@@ -218,6 +216,11 @@
             display: flex;
             align-items: center;
             gap: 3px;
+
+            img {
+              width: 1.2rem;
+              height: 1.2rem;
+            }
   
             &:first-of-type {
               border-top: 1px dashed #000;

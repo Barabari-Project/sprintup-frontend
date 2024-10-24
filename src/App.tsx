@@ -85,12 +85,12 @@ function App() {
         },
         {
           path: "/terms",
-          element: <TermsofUse />
+          element: <TermsofUse />,
         },
         {
           path: "/privacy-policy",
-          element: <PrivacyPolicy />
-        }
+          element: <PrivacyPolicy />,
+        },
       ],
     },
     {
@@ -130,7 +130,7 @@ function App() {
           ),
         },
         {
-          path: "/course-syllabus",
+          path: "/course-syllabus/:id",
           element: (
             <ProtectedRoute>
               <CourseSyllabus />

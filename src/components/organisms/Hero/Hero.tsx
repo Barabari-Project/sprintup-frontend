@@ -6,7 +6,6 @@ import Carausal from "../../molecule/Carausal/Carausal";
 import { FaUser } from "react-icons/fa";
 import { FaPhoneAlt } from "react-icons/fa";
 import carausalData from "../../../data/carausalData.json";
-import demoSessionSchedule from "../../../data/demoSessionSchedule.json";
 import { toast } from "react-toastify";
 import { useFormContext } from "../../../context/formContext";
 import restEndPoints from "../../../data/restEndPoints.json";
@@ -31,7 +30,6 @@ export interface SlideData {
 const Hero: React.FC = () => {
   const [inputName, setInputName] = useState<string>("");
   const [inputNumber, setInputNumber] = useState<string>("");
-  const [timeSlot, setTimeSlot] = useState<Number | null>(0);
   const [nameError, setNameError] = useState<string | null>(null);
   const [numberError, setNumberError] = useState<string | null>(null);
   const { isLoading, setLoading, formSubmitted, setFormSubmitted } =
@@ -50,24 +48,9 @@ const Hero: React.FC = () => {
     }
 
     setLoading(true);
-    const date =
-      timeSlot === 0
-        ? null
-        : timeSlot === 1
-          ? demoSessionSchedule[0]["date-be"]
-          : demoSessionSchedule[1]["date-be"];
-    const time =
-      timeSlot === 0
-        ? null
-        : timeSlot === 1
-          ? demoSessionSchedule[0].time
-          : demoSessionSchedule[1].time;
-
     const data = {
       name: inputName.trim(),
       phoneNumber: inputNumber.trim(),
-      date: date,
-      time: time,
     };
 
     try {
@@ -119,46 +102,8 @@ const Hero: React.FC = () => {
                   }
                 }}
               />
-              {/* <div className="hero-form-slots">
-                <div
-                  className={`timeSlot ${timeSlot === 0 && "active"}`}
-                  onClick={() => {
-                    isLoading || (!formSubmitted && setTimeSlot(0));
-                  }}
-                >
-                  <p>No Preference</p>
-                </div>
-
-                <div
-                  className={`timeSlot ${timeSlot === 1 && "active"}`}
-                  onClick={() => {
-                    isLoading ||
-                      (!formSubmitted && setTimeSlot(timeSlot === 1 ? 0 : 1));
-                  }}
-                >
-                  <p>{demoSessionSchedule[0]["date-fe"]}</p>
-                  <p>{demoSessionSchedule[0].time}</p>
-                </div>
-
-                <div
-                  className={`timeSlot ${timeSlot === 2 && "active"}`}
-                  onClick={() => {
-                    isLoading ||
-                      (!formSubmitted && setTimeSlot(timeSlot === 2 ? 0 : 2));
-                  }}
-                >
-                  <p>{demoSessionSchedule[1]["date-fe"]}</p>
-                  <p>{demoSessionSchedule[1].time}</p>
-                </div>
-              </div> */}
               {isLoading ? (
                 <div className="form-loader">
-                  {/* <Lottie
-                    loop
-                    animationData={loaderData}
-                    play
-                    style={{ width: 40, height: 40 }}
-                  /> */}
                   <img src="/assets/loader_compressed.gif" alt="loader" />
                 </div>
               ) : (

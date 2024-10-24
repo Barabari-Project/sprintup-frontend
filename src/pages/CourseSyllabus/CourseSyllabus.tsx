@@ -12,12 +12,13 @@ import { GrProjects } from "react-icons/gr";
 import { GiFaceToFace } from "react-icons/gi";
 import { nanoid } from "nanoid";
 import { MdExpandMore } from "react-icons/md";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { toast } from "react-toastify";
 import Lottie from "react-lottie-player";
-import loaderData from "../../Lottie/loaderSmall.json"
+import loaderData from "../../Lottie/loaderSmall.json";
 import { setUserDetails } from "../../redux/slices/UserSliice";
 import { useDispatch } from "react-redux";
+import classNames from "classnames";
 
 type SubTopic = {
   name: string;
@@ -33,120 +34,146 @@ type Topic = {
   subtopics: SubTopic[];
 };
 
-type Course = {
+type Module = {
   name: string;
   topics: Topic[];
 };
 
+type CourseDetails = {
+  title: string;
+  subtitle: string;
+  description: string;
+  points: string[];
+  modules: Module[];
+};
+
 const CourseSyllabus: React.FC = () => {
-  const [courseData, setCourseData] = useState<Course[]>([]);
+  const [courseData, setCourseData] = useState<CourseDetails | null>(null);
   const navigate = useNavigate();
   const [isLoading, setLoading] = useState<boolean>(false);
+  const { id } = useParams();
 
   useEffect(() => {
     eventAxiosInstance.post(`/${restEndPoints.eventAuth}`, {
       type: EventType.COURSE_SYLLABUS_VIEW,
     });
     fetchCourseData();
-  }, []);
+  }, [id]);
 
   const fetchCourseData = async () => {
     setLoading(true);
+    const endPoint =
+      id === "mern-full-stack"
+        ? "mernStack"
+        : id === "data-analytics"
+        ? "dataAnalytics"
+        : "digitalMarketing";
+
     try {
-      const response = await axiosInstance.get(`/${restEndPoints.course}`);
-      setCourseData(response.data.modules);
+      const response = await axiosInstance.get(`/${restEndPoints[endPoint]}`);
+      setCourseData(response.data);
     } catch (err: any) {
       toast.error(err.response.data.error);
       if (401 == err.response.status) {
-        navigate('/login');
+        navigate("/login");
       }
     } finally {
       setLoading(false);
     }
   };
 
-  return (
+  const getIcon = (index: number) => {
+    switch (index) {
+      case 0:
+        return <FaGraduationCap />;
+      case 1:
+        return <MdFlightClass />;
+      case 2:
+        return <SiInternetarchive />;
+      case 3:
+        return <GrProjects />;
+      case 4:
+        return <GiFaceToFace />;
+      case 5:
+        return <SiGoogleclassroom />;
+      default:
+        return null;
+    }
+  };
+
+  const groupPointsInPairs = (points: string[]) => {
+    const pairs = [];
+    for (let i = 0; i < points.length; i += 2) {
+      pairs.push(points.slice(i, i + 2));
+    }
+    return pairs;
+  };
+
+  return isLoading ? (
+    <div className={classNames(styles.courseSyllabus, styles.loader)}>
+      <Lottie
+        animationData={loaderData}
+        play
+        style={{ width: 300, height: 300 }}
+      />
+    </div>
+  ) : courseData ? (
     <div className={styles.courseSyllabus}>
       <SidebarTriggerButton />
       <div className={styles.pageDetails}>
         <h5 className={styles.subject}>Job Path</h5>
-        <h2 className={styles.title}>
-          In-Classroom MERN Full-Stack Web Development Course
-        </h2>
-        <h3 className={styles.subTitle}>
-          Enroll today to kickstart your tech career
-        </h3>
-        <p className={styles.desc}>
-          Unlock your potential with our flagship course, specifically designed
-          for students of all disciplines. This program offers top-quality tech
-          education by experienced instructors from leading tech companies. We
-          cover the latest in MongoDB, Express.js, React, and Node.js, equipping
-          you with the skills to excel in the competitive tech industry. Upon
-          completing the course, we guarantee a 100% job placement. Join us to
-          transform your future and become a proficient full-stack developer.
-        </p>
-
+        <h2 className={styles.title}>{courseData.title}</h2>
+        <h3 className={styles.subTitle}>{courseData.subtitle}</h3>
+        <p className={styles.desc}>{courseData.description}</p>
         <div className={styles.highlightedPoints}>
-          <div className={styles.highlightedPoint}>
-            <p className={styles.point}>
-              <FaGraduationCap /> 100% Job guarantee on course completion
-            </p>
-            <p className={styles.point}>
-              <MdFlightClass /> In-class lecture & doubt clearance
-            </p>
-          </div>
-          <div className={styles.highlightedPoint}>
-            <p className={styles.point}>
-              <SiInternetarchive /> Guaranteed 2-month internship
-            </p>
-            <p className={styles.point}>
-              <GrProjects /> 4+ real-world projects
-            </p>
-          </div>
-          <div className={styles.highlightedPoint}>
-            <p className={styles.point}>
-              <GiFaceToFace /> 1:1 continuous support
-            </p>
-            <p className={styles.point}>
-              <SiGoogleclassroom /> Open for all disciplines
-            </p>
-          </div>
+          {courseData.points.length > 0 ? (
+            groupPointsInPairs(courseData.points).map((pair, pairIndex) => (
+              <div key={pairIndex} className={styles.highlightedPoint}>
+                {pair.map((point, index) => (
+                  <p key={index} className={styles.point}>
+                    {getIcon(pairIndex * 2 + index)} {point}
+                  </p>
+                ))}
+              </div>
+            ))
+          ) : (
+            <p className={styles.failedText}>No lessons available.</p>
+          )}
         </div>
       </div>
       <div className={styles.syllabusSection}>
         <h3 className={styles.sectionTitle}>Course Syllabus</h3>
-        {isLoading ? (
-          <div className={styles.loader}>
-            <Lottie
-              animationData={loaderData}
-              play
-              style={{ width: 300, height: 300 }}
-            />
-          </div>
-        ) : courseData.length > 0 ? (
-          courseData.map((module) => (
+        {courseData.modules.length > 0 ? (
+          courseData.modules.map((module) => (
             <div className={styles.moduleContainer} key={nanoid()}>
-              <h2 className={styles.moduleTitle}>
-                {module.name}
-              </h2>
+              <h2 className={styles.moduleTitle}>{module.name}</h2>
               {module.topics.length > 0 ? (
                 module.topics.map((topic) => (
-                  <LessonItem key={nanoid()} modueName={module.name} topic={topic} />
+                  <LessonItem
+                    key={nanoid()}
+                    modueName={module.name}
+                    topic={topic}
+                  />
                 ))
               ) : (
-                <p>No lessons available.</p>
+                <p className={styles.failedText}>No lessons available.</p>
               )}
             </div>
           ))
         ) : (
-          <p>No modules available.</p>
+          <p className={styles.failedText}>No modules available.</p>
         )}
       </div>
     </div>
+  ) : (
+    <p className={styles.failedText}>No Data available.</p>
   );
 };
 
-const LessonItem: React.FC<{ modueName: string, topic: Topic }> = ({ modueName, topic }) => {
+const LessonItem: React.FC<{ modueName: string; topic: Topic }> = ({
+  modueName,
+  topic,
+}) => {
   const [isExpanded, setIsExpanded] = useState(false);
 
   const dispatch = useDispatch();
@@ -156,29 +183,32 @@ const LessonItem: React.FC<{ modueName: string, topic: Topic }> = ({ modueName, 
   };
 
   const triggerEvent = (modueName: string) => {
-    const type = modueName.split(':')[0] + '_' + EventType.LOCK_CLICK;
+    const type = modueName.split(":")[0] + "_" + EventType.LOCK_CLICK;
     eventAxiosInstance.post(`/${restEndPoints.eventAuth}`, {
       type: type,
     });
-  }
+  };
 
   const increaseProgress = async () => {
     try {
-      const response = await axiosInstance.post(`/${restEndPoints.increaseProgress}`);
+      const response = await axiosInstance.post(
+        `/${restEndPoints.increaseProgress}`
+      );
 
       const studentDetails = response.data.student;
-      dispatch(setUserDetails({
-        enrolled: studentDetails.isEnrolled,
-        phoneNumber: studentDetails.phoneNumber,
-        name: studentDetails.name,
-        progress: studentDetails.enrolled
-          ? studentDetails.enrolled.progress
-          : 0,
-        avatar: studentDetails.avatar,
-      }));
-    } catch (error) {
-    }
-  }
+      dispatch(
+        setUserDetails({
+          enrolled: studentDetails.isEnrolled,
+          phoneNumber: studentDetails.phoneNumber,
+          name: studentDetails.name,
+          progress: studentDetails.enrolled
+            ? studentDetails.enrolled.progress
+            : 0,
+          avatar: studentDetails.avatar,
+        })
+      );
+    } catch (error) {}
+  };
 
   return (
     <div className={styles.lessonContainer}>
@@ -202,7 +232,7 @@ const LessonItem: React.FC<{ modueName: string, topic: Topic }> = ({ modueName, 
           >
             <p className={styles.lessonDescription}>{topic.description}</p>
             <div className={styles.topicsContainer}>
-              {topic.subtopics.map((subTopic) => (
+              {topic.subtopics.map((subTopic) =>
                 subTopic.link ? (
                   <a
                     href={subTopic.link}
@@ -210,9 +240,20 @@ const LessonItem: React.FC<{ modueName: string, topic: Topic }> = ({ modueName, 
                     rel="noopener noreferrer"
                     className={styles.topicLink}
                   >
-                    <div className={styles.topic} key={nanoid()} onClick={() => { triggerEvent(modueName); increaseProgress(); }}>
+                    <div
+                      className={styles.topic}
+                      key={nanoid()}
+                      onClick={() => {
+                        triggerEvent(modueName);
+                        increaseProgress();
+                      }}
+                    >
                       <div className={styles.topicIcon}>
-                        {subTopic.isLocked ? <MdOutlineLock /> : <MdOutlineCheck />}
+                        {subTopic.isLocked ? (
+                          <MdOutlineLock />
+                        ) : (
+                          <MdOutlineCheck />
+                        )}
                       </div>
                       <div className={styles.topicContent}>
                         <h5>{subTopic.name}</h5>
@@ -220,22 +261,31 @@ const LessonItem: React.FC<{ modueName: string, topic: Topic }> = ({ modueName, 
                       </div>
                     </div>
                   </a>
-                ) :
-                  <div className={styles.topic} key={nanoid()} onClick={() => triggerEvent(modueName)}>
+                ) : (
+                  <div
+                    className={styles.topic}
+                    key={nanoid()}
+                    onClick={() => triggerEvent(modueName)}
+                  >
                     <div className={styles.topicIcon}>
-                      {subTopic.isLocked ? <MdOutlineLock /> : <MdOutlineCheck />}
+                      {subTopic.isLocked ? (
+                        <MdOutlineLock />
+                      ) : (
+                        <MdOutlineCheck />
+                      )}
                     </div>
                     <div className={styles.topicContent}>
                       <h5>{subTopic.name}</h5>
                       <p>{subTopic.description}</p>
                     </div>
                   </div>
-              ))}
+                )
+              )}
             </div>
-          </motion.div >
+          </motion.div>
         )}
-      </AnimatePresence >
-    </div >
+      </AnimatePresence>
+    </div>
   );
 };
 

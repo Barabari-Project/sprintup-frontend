@@ -38,6 +38,7 @@ export const data: Program[] = [
         ],
       },
     ],
+    action: "/course-syllabus/data-analytics"
   },
   {
     title: "MERN Full Stack Web Development Program",
@@ -76,6 +77,7 @@ export const data: Program[] = [
         ],
       },
     ],
+    action: "/course-syllabus/mern-full-stack"
   },
   {
     title: "Digital Marketing with AI Program",
@@ -114,5 +116,6 @@ export const data: Program[] = [
         ],
       },
     ],
+    action: "/course-syllabus/digital-marketing"
   },
 ];
