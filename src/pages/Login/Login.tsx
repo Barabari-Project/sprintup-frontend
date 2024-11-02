@@ -38,11 +38,11 @@ const Login = () => {
     if (nameError || numberError) {
       return;
     }
-
-    if (!captchaVerified) {
-      toast.error("Please verify that you are not a robot.");
-      return;
-    }
+    //TODO: enable later
+    // if (!captchaVerified) {
+    //   toast.error("Please verify that you are not a robot.");
+    //   return;
+    // }
     let response = null;
     setLoading(true);
 
