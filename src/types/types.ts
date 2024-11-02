@@ -111,3 +111,24 @@ export interface DashboardAvailableCoursesData {
     icon: string;
   }[];
 }
+
+export interface BlogCarausalData {
+  _id: string;
+  title: string;
+  subtitle: string;
+  tag: string;
+  author: string;
+  time: string;
+  image: string;
+}
+
+export interface BlogCard {
+  _id: string;
+  title: string;
+  subtitle: string;
+  cardDescritpion: string;
+  tag: string;
+  author: string;
+  time: string;
+  image: string;
+}

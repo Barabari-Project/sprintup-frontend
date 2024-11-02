@@ -12,5 +12,7 @@
     "dataAnalytics": "course/data-analytics",
     "digitalMarketing": "course/digital-marketing",
     "getFaqByType": "faqs",
-    "increaseProgress" : "auth/increase-progress"
+    "increaseProgress" : "auth/increase-progress",
+    "blogCarausal": "blogs/top",
+    "blogs": "blogs"
 }

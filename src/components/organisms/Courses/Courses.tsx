@@ -19,7 +19,7 @@ const Courses: React.FC = () => {
           <div className={styles.courseCardContainer}>
             {cardDetails.map((card, idx) => {
               return (
-                <div className={styles.availableCoursesCard}>
+                <div key={idx} className={styles.availableCoursesCard}>
                   <div className={styles.cardHeader}>Job Path</div>
                   <div className={styles.content}>
                     <h3 className={styles.cardHeading}>{SafeHtmlComponent(card.title)}</h3>
@@ -35,10 +35,10 @@ const Courses: React.FC = () => {
                       })}
                     </div>
                     <div className={styles.cardPointsContainer}>
-                      {card.bottomPoints.map((point) => {
+                      {card.bottomPoints.map((point, i) => {
                         return (
                           <h5 className={styles.cardPoints}>
-                            {idx === 0 ? <TfiBook /> : <FaRegHandshake />}{" "}
+                            {i === 0 ? <TfiBook /> : <FaRegHandshake />}{" "}
                             {point}
                           </h5>
                         );

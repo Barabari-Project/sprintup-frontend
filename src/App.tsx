@@ -25,6 +25,8 @@ import loader from "./Lottie/loader.json";
 import TermsofUse from "./pages/TermsofUse/TermsofUse";
 import PrivacyPolicy from "./pages/PrivacyPolicy/PrivacyPolicy";
 import ErrorPage from "./pages/ErrorPage/ErrorPage";
+import Blog from "./pages/Blog/Blog";
+import BlogDetails from "./pages/BlogDetails/BlogDetails";
 
 function App() {
   const dispatch = useDispatch();
@@ -70,6 +72,14 @@ function App() {
         {
           path: "/contact",
           element: <ContactUs />,
+        },
+        {
+          path: "/blog",
+          element: <Blog />,
+        },
+        {
+          path: "/blog/:id",
+          element: <BlogDetails />
         },
         {
           path: "/faqs",
