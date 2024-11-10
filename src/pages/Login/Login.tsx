@@ -18,7 +18,7 @@ const Login = () => {
   const [isLoading, setLoading] = useState<boolean>(false);
   const [numberError, setNumberError] = useState<string | null>(null);
   const [nameError, setNameError] = useState<string | null>(null);
-  const [captchaVerified, setCaptchaVerified] = useState<boolean>(false);
+  // const [captchaVerified, setCaptchaVerified] = useState<boolean>(false);
   const pathName = useLocation().pathname;
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -80,8 +80,7 @@ const Login = () => {
       if (404 == err.response.status) {
         toast.info(err.response.data.error);
         navigate("/signup");
-      }
-      else {
+      } else {
         toast.error(err.response.data.error);
       }
     } finally {
@@ -91,16 +90,18 @@ const Login = () => {
     }
   };
 
+  //TODO: uncomment later
   const onChangecaptcha = async (value: string | null) => {
     // const response = await axios.post("https://www.google.com/recaptcha/api/siteverify", {
     //   secert: import.meta.env.VITE_RECAPTCHA_SITE_KEY,
     //   response: value
     // })
-    if (value) {
-      setCaptchaVerified(true);
-    } else {
-      setCaptchaVerified(false);
-    }
+    // if (value) {
+    //   setCaptchaVerified(true);
+    // } else {
+    //   setCaptchaVerified(false);
+    // }
+    console.log(value);
   };
   return (
     <div className={styles.loginPage}>

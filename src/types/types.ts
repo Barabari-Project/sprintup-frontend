@@ -132,3 +132,28 @@ export interface BlogCard {
   time: string;
   image: string;
 }
+
+export interface BlogPostDetails {
+  _id: string;
+  title: string;
+  subtitle: string;
+  summary: string;
+  detail: {
+    desc: string[];
+    points: {
+      heading: string;
+      desc?: string;
+      subpoints?: {
+        heading: string;
+        desc: string;
+      }[];
+    }[];
+    endheading: string;
+    enddesc: string[];
+  };
+  tag: string;
+  author: string;
+  time: string;
+  image: string;
+  top?: boolean;
+}

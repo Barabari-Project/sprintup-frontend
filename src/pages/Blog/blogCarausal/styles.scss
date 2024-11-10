@@ -1,3 +1,4 @@
+@import "/src/styles/mixins";
 .blogCarausal {
   width: 100%;
   margin-bottom: 2rem;
@@ -58,6 +59,10 @@
     opacity: 0.6;
     z-index: 1;
   }
+
+  @include sm-max {
+    padding: 2rem 1rem;
+  }
 }
 
 .content {
@@ -68,9 +73,13 @@
   flex-direction: column;
   justify-content: flex-start;
   gap: 0.5rem;
-  h2 {
+  h1 {
     font-size: 2.5rem;
     font-weight: 500;
+
+    @include sm-max {
+      font-size: 1.8rem
+    }
   }
   p {
     font-size: 1.2rem;

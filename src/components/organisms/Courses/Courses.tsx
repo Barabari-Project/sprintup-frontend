@@ -25,9 +25,9 @@ const Courses: React.FC = () => {
                     <h3 className={styles.cardHeading}>{SafeHtmlComponent(card.title)}</h3>
                     <p className={styles.cardDesc}>{card.desc}</p>
                     <div className={styles.bulletPointsBox}>
-                      {card.bulletPoints.map((point) => {
+                      {card.bulletPoints.map((point, i) => {
                         return (
-                          <p className={styles.bulletPoint}>
+                          <p key={`${idx}bullet--${i}`} className={styles.bulletPoint}>
                             <span>+ </span>
                             {point}
                           </p>
@@ -37,7 +37,7 @@ const Courses: React.FC = () => {
                     <div className={styles.cardPointsContainer}>
                       {card.bottomPoints.map((point, i) => {
                         return (
-                          <h5 className={styles.cardPoints}>
+                          <h5 key={`${idx}bottom--${i}`} className={styles.cardPoints}>
                             {i === 0 ? <TfiBook /> : <FaRegHandshake />}{" "}
                             {point}
                           </h5>

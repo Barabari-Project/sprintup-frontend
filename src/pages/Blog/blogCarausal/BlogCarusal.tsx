@@ -33,11 +33,11 @@ const BlogCarusal: React.FC<{ data: BlogCarausalData[]; loading: boolean }> = ({
           {data.map((item) => (
             <div key={item._id} className="carausalSlide">
               <div
-                style={{ background: `url(${item.image})` }}
+                style={{ backgroundImage: `url(${item.image})` }}
                 className="carausalData"
               >
                 <div className="content">
-                  <h2>{item.title}</h2>
+                  <h1>{item.title}</h1>
                   <p>{item.subtitle}</p>
                 </div>
               </div>

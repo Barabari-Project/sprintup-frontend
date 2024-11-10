@@ -80,7 +80,7 @@ const MobileNavbar: React.FC = () => {
               to="/blog"
               className={({ isActive }) => (isActive ? "active" : "")}
             >
-              Blog
+              Blogs
             </NavLink>
           </li>
           <li>

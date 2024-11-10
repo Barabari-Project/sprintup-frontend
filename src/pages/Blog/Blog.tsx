@@ -37,7 +37,6 @@ const Blog: React.FC = () => {
     const fetchBlogCards = async () => {
       setLoadingCards(true);
       try {
-        console.log("Fetching blog cards");
         const response = await axiosInstance.get(
           `/${restEndpoints.blogs}?page=${currentPage}&limit=${limit}`
         );
@@ -68,8 +67,6 @@ const Blog: React.FC = () => {
   const handleCardClick = (id: string) => {
     navigate(`/blog/${id}`);
   };
-
-  console.log({ cardData, loadingCards, currentPage, totalPages });
 
   return (
     <div className={styles.blog}>
