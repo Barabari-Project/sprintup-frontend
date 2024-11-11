@@ -1,23 +1,23 @@
 [
   {
-    "title": "IN-CLASS SESSIONS</br>BY THE BEST",
+    "title": "DATA SCIENCE & ANALYTICS PROGRAM",
     "image": "/assets/carousal/in-Class.svg",
     "desc": [
-      "Live in-class sessions for optimum learning",
-      "In-class dedicated doubt clearance"
+      "10+ Real World Projects",
+      "100% Job Assistance Program"
     ]
   },
   {
-    "title": "FIND THE RIGHT JOB</br>FOR YOU",
+    "title": "MERN FULL STACK <br/> WEB DEVELOPMENT",
     "image": "/assets/carousal/jobs.svg",
     "desc": [
-      "Guaranteed jobs on course completion",
-      "At least 4 mock interviews"
+      "100% Job Assistance Program",
+      "15+ Placement Partner Companies"
     ]
   },
   {
-    "title": "MOST INTERACTIVE</br>COURSE",
+    "title": "DIGITAL MARKETING WITH AI PROGRAM",
     "image": "/assets/carousal/course.svg",
-    "desc": ["Guaranteed 2-month internship", "Work on 4 real-world projects"]
+    "desc": ["META Completion Certification", "1-Month Internship Guarantee"]
   }
 ]

@@ -89,6 +89,14 @@ const Header: React.FC = () => {
               </li>
               <li>
                 <NavLink
+                  to="/blog"
+                  className={({ isActive }) => (isActive ? "active" : "")}
+                >
+                  Blogs
+                </NavLink>
+              </li>
+              <li>
+                <NavLink
                   to="/contact"
                   className={({ isActive }) => (isActive ? "active" : "")}
                 >

@@ -77,6 +77,14 @@ const MobileNavbar: React.FC = () => {
           </li>
           <li>
             <NavLink
+              to="/blog"
+              className={({ isActive }) => (isActive ? "active" : "")}
+            >
+              Blogs
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
               onClick={closeMenu}
               to="/contact"
               className={({ isActive }) => (isActive ? "active" : "")}
@@ -85,7 +93,7 @@ const MobileNavbar: React.FC = () => {
             </NavLink>
           </li>
         </ul>
-        {user &&
+        {user && (
           <div className="header_btns">
             <Link to="/login" className="header_btn login  mobile">
               Log In
@@ -94,7 +102,7 @@ const MobileNavbar: React.FC = () => {
               Sign Up
             </Link>
           </div>
-        }
+        )}
       </nav>
     </div>
   );

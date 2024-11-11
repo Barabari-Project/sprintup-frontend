@@ -25,6 +25,8 @@ import loader from "./Lottie/loader.json";
 import TermsofUse from "./pages/TermsofUse/TermsofUse";
 import PrivacyPolicy from "./pages/PrivacyPolicy/PrivacyPolicy";
 import ErrorPage from "./pages/ErrorPage/ErrorPage";
+import Blog from "./pages/Blog/Blog";
+import BlogDetails from "./pages/BlogDetails/BlogDetails";
 
 function App() {
   const dispatch = useDispatch();
@@ -72,6 +74,14 @@ function App() {
           element: <ContactUs />,
         },
         {
+          path: "/blog",
+          element: <Blog />,
+        },
+        {
+          path: "/blog/:id",
+          element: <BlogDetails />
+        },
+        {
           path: "/faqs",
           element: <FAQs />,
         },
@@ -85,12 +95,12 @@ function App() {
         },
         {
           path: "/terms",
-          element: <TermsofUse />
+          element: <TermsofUse />,
         },
         {
           path: "/privacy-policy",
-          element: <PrivacyPolicy />
-        }
+          element: <PrivacyPolicy />,
+        },
       ],
     },
     {
@@ -130,7 +140,7 @@ function App() {
           ),
         },
         {
-          path: "/course-syllabus",
+          path: "/course-syllabus/:id",
           element: (
             <ProtectedRoute>
               <CourseSyllabus />

@@ -82,8 +82,8 @@ const ContactUs: React.FC = () => {
           {/* <p>Let us know what you’re after.</p> */}
           {contactData.map((data, i) => {
             return (
-              <a href={data.link}>
-                <div key={i} className={styles.contactDetalsBox}>
+              <a href={data.link} key={i}>
+                <div className={styles.contactDetalsBox}>
                   <div className={styles.icon}>{data.icon}</div>
                   <div className={styles.contactDetals}>
                     <h3>{data.title}</h3>

@@ -1,24 +1,35 @@
 [
   {
-    "title": "Curriculum",
+    "title": "Data Science & Analytics Program",
+    "bulletPoints": [
+      "Build a basic “feel of data”",
+      "Excel & SQL for data analysis",
+      "Python for advance analysis",
+      "Work on real-world projects"
+    ],
+    "desc": "This 5-month program helps students start their journey in the data field. It covers top tools, techniques, and key concepts.",
+    "bottomPoints": ["5-month program", "100% Guaranteed Internship"]
+  },
+  {
+    "title": "MERN Full Stack Web Development Program",
     "bulletPoints": [
       "Logical reasoning and DSA",
       "Frontend with React.js",
       "Backend with Node.js",
       "4 real-world projects"
     ],
-    "desc": "Our curriculum emphasizes foundational skills that will equip you for a lifetime of success and adaptability in your career.",
-    "bottomPoints": ["Open to all disciplines"]
+    "desc": "Become job-ready with this program. Prepare for a career in web development with practical skills and real-world projects.",
+    "bottomPoints": ["7-month program", "100% Job Assistance"]
   },
   {
-    "title": "Placement",
+    "title": "Digital Marketing with AI Program",
     "bulletPoints": [
-      "2-month internship",
-      "4+ mock interviews",
-      "1:1 placement support",
-      "Job guarantee on course completion"
+      "SEO & Google Analytics",
+      "Social Media Marketing with AI tools",
+      "Facebook & Instagram Ad concepts",
+      "Build real-world marketing campaigns"
     ],
-    "desc": "We guarantee 100% placement upon course completion. Our partnership with top tech firms will ensure we find the right job for you.",
-    "bottomPoints": ["15+ Partner companies & growing"]
+    "desc": "Learn cutting-edge digital marketing strategies & top AI tools to equip yourself with skills to excel as a next-gen marketer.",
+    "bottomPoints": ["4-month program", "100% Guaranteed Internship"]
   }
 ]

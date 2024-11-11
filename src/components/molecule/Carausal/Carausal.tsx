@@ -11,7 +11,7 @@ import parse from "html-react-parser";
 export function SafeHtmlComponent(htmlContent: string, FORBID_TAGS: string[] = []) {
   // Sanitize the HTML content, allowing only specific tags
   const cleanHtml = DOMPurify.sanitize(htmlContent, {
-    ALLOWED_TAGS: ["strong", "i", "br", "pre", "code", "span"],
+    ALLOWED_TAGS: ["strong", "i", "br", "pre", "code", "span", "b"],
     FORBID_TAGS: ["script", ...FORBID_TAGS],
   });
   return parse(cleanHtml);

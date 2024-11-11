@@ -5,7 +5,6 @@ export interface Course {
   catagory: string;
 }
 
-
 export interface WhyChooseUsCardDetails {
   title: string;
   subtitle: string;
@@ -64,13 +63,13 @@ export enum EventType {
 }
 
 export enum FAQType {
-  Program = 'Program',
-  Curriculum = 'Curriculum',
-  Teaching = 'Teaching',
-  EntranceTest = 'Entrance Test',
-  Mentors = 'Mentors',
-  PlacementSupport = 'Placement Support',
-  EntranceFees = 'Entrance Fees'
+  Program = "Program",
+  Curriculum = "Curriculum",
+  Teaching = "Teaching",
+  EntranceTest = "Entrance Test",
+  Mentors = "Mentors",
+  PlacementSupport = "Placement Support",
+  EntranceFees = "Entrance Fees",
 }
 
 export interface FAQItem {
@@ -86,4 +85,75 @@ export interface FAQItem {
 export interface FAQ {
   type: FAQType;
   faq: FAQItem[];
+}
+
+export interface ProgramCard {
+  cardTitle: string;
+  desc: string;
+  bulletPoints: string[];
+  highlightedPoints: {
+    point: string;
+    icon: string;
+  }[];
+}
+export interface Program {
+  title: string;
+  sectionBackground: string;
+  cards: ProgramCard[];
+  action: string;
+}
+
+export interface DashboardAvailableCoursesData {
+  courseName: string;
+  courseDesc: string;
+  coursePoints: {
+    point: string;
+    icon: string;
+  }[];
+}
+
+export interface BlogCarausalData {
+  _id: string;
+  title: string;
+  subtitle: string;
+  tag: string;
+  author: string;
+  time: string;
+  image: string;
+}
+
+export interface BlogCard {
+  _id: string;
+  title: string;
+  subtitle: string;
+  cardDescritpion: string;
+  tag: string;
+  author: string;
+  time: string;
+  image: string;
+}
+
+export interface BlogPostDetails {
+  _id: string;
+  title: string;
+  subtitle: string;
+  summary: string;
+  detail: {
+    desc: string[];
+    points: {
+      heading: string;
+      desc?: string;
+      subpoints?: {
+        heading: string;
+        desc: string;
+      }[];
+    }[];
+    endheading: string;
+    enddesc: string[];
+  };
+  tag: string;
+  author: string;
+  time: string;
+  image: string;
+  top?: boolean;
 }

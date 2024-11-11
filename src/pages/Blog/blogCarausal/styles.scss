@@ -1,0 +1,95 @@
+@import "/src/styles/mixins";
+.blogCarausal {
+  width: 100%;
+  margin-bottom: 2rem;
+
+  .slick-slider {
+    .slick-prev,
+    .slick-next {
+      display: none !important; // Forcefully hide the buttons
+    }
+    .slick-dots {
+      bottom: 0;
+      button {
+        &::before {
+          font-size: 0.7rem;
+        }
+      }
+    }
+  }
+}
+
+.carausalSlide {
+  width: 100%;
+  height: 29rem;
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+  padding: 0 1rem;
+}
+
+.carausalData {
+  width: 100%;
+  height: inherit;
+  display: flex;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  flex-direction: column;
+  border-radius: 1rem;
+  overflow: hidden;
+  position: relative;
+  color: #fff;
+  padding: 2rem 3rem;
+  padding-bottom: 5rem;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+      90deg,
+      rgb(0 0 0) 33.17%,
+      rgb(0 0 0 / 69%) 50.9%,
+      rgb(0 0 0 / 23%) 100%
+    );
+    opacity: 0.6;
+    z-index: 1;
+  }
+
+  @include sm-max {
+    padding: 2rem 1rem;
+  }
+}
+
+.content {
+  position: relative;
+  margin-top: auto;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 0.5rem;
+  h1 {
+    font-size: 2.5rem;
+    font-weight: 500;
+
+    @include sm-max {
+      font-size: 1.8rem
+    }
+  }
+  p {
+    font-size: 1.2rem;
+  }
+}
+
+.blogCarausal__loader {
+  width: 100%;
+  height: inherit;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
