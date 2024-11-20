@@ -49,7 +49,7 @@ function App() {
           })
         );
       } catch (error) {
-        // console.log(error); // as we are going in production
+        
       }
     };
     auth();

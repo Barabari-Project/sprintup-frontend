@@ -31,7 +31,6 @@ const BlogDetails: React.FC = () => {
     fetchBlogDetails();
   }, [id]);
 
-  console.log(blogDeatils);
   return (
     <div className={styles.blogDetails}>
       <div className={styles.blogDetailsPage}>

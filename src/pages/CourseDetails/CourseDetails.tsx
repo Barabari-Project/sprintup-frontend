@@ -3,18 +3,20 @@ import styles from "./CourseDetails.module.scss";
 import { data } from "../../data/programInfo";
 import { SafeHtmlComponent } from "../../components/molecule/Carausal/Carausal";
 import { NavLink } from "react-router-dom";
+import { nanoid } from "nanoid";
 
 const CourseDetails: React.FC = () => {
   return (
     <section className={styles.courseInfoSection}>
       {data.map((section, idx) => {
         return (
-          <div key={`section-${idx}`} className={styles.courseWrapper} style={{ background: section.sectionBackground }}>
-            <div
-              className={styles.courseContainer}
-              
-            >
-              <h5 className={styles.sectionTitle}>Program Overview</h5>
+          <div
+            key={`section-${idx}`}
+            className={styles.courseWrapper}
+            style={{ background: section.sectionBackground }}
+          >
+            <div className={styles.courseContainer}>
+              <h3 className={styles.sectionTitle}>Program Overview</h3>
               <p className={styles.section_sub_title}>{section.title}</p>
               <div className={styles.courseCardContainer}>
                 {section.cards.map((card, index) => {
@@ -32,7 +34,10 @@ const CourseDetails: React.FC = () => {
                         <div className={styles.bulletPointsBox}>
                           {card.bulletPoints.map((point, i) => {
                             return (
-                              <p key={`point${i}`} className={styles.bulletPoint}>
+                              <p
+                                key={`point${i}`}
+                                className={styles.bulletPoint}
+                              >
                                 <span>+ </span>
                                 {point}
                               </p>
@@ -42,10 +47,10 @@ const CourseDetails: React.FC = () => {
                         <div className={styles.cardPointsContainer}>
                           {card.highlightedPoints.map((point) => {
                             return (
-                              <h5 className={styles.cardPoints}>
+                              <h4 key={nanoid()} className={styles.cardPoints}>
                                 <img src={point.icon} alt="" />
                                 {point.point}
-                              </h5>
+                              </h4>
                             );
                           })}
                         </div>

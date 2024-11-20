@@ -11,7 +11,7 @@ const Courses: React.FC = () => {
     <>
       <section className={styles.courcesSection} id="courses">
         <div className={styles.courcesContainer}>
-          <h5 className={styles.sectionTitle}>Our Courses</h5>
+          <h3 className={styles.sectionTitle}>Our Courses</h3>
           <p className={styles.section_sub_title}>
             <span>Job-linked </span>
             Upskilling Courses
@@ -37,10 +37,10 @@ const Courses: React.FC = () => {
                     <div className={styles.cardPointsContainer}>
                       {card.bottomPoints.map((point, i) => {
                         return (
-                          <h5 key={`${idx}bottom--${i}`} className={styles.cardPoints}>
+                          <h4 key={`${idx}bottom--${i}`} className={styles.cardPoints}>
                             {i === 0 ? <TfiBook /> : <FaRegHandshake />}{" "}
                             {point}
-                          </h5>
+                          </h4>
                         );
                       })}
                     </div>
@@ -65,16 +65,16 @@ const Courses: React.FC = () => {
           <div className={styles.courseHighlights__points}>
             <div className={styles.courseHighlights__point}>
               <h2 className={styles.title}>Top Expert</h2>
-              <h4 className={styles.subTitle}>Instructors</h4>
+              <h3 className={styles.subTitle}>Instructors</h3>
             </div>
 
             <div className={styles.courseHighlights__point}>
               <h2 className={styles.title}>15+ Companies</h2>
-              <h4 className={styles.subTitle}>Partners </h4>
+              <h3 className={styles.subTitle}>Partners </h3>
             </div>
             <div className={styles.courseHighlights__point}>
               <h2 className={styles.title}>100% Placement</h2>
-              <h4 className={styles.subTitle}>Assistance</h4>
+              <h3 className={styles.subTitle}>Assistance</h3>
             </div>
           </div>
         </div>

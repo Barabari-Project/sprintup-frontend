@@ -144,12 +144,12 @@ const Dashboard: React.FC = () => {
                     <p className={styles.cardDesc}>{course.courseDesc}</p>
                     <div className={styles.cardPointsContainer}>
                       {course.coursePoints.map((point, index) => (
-                        <h5
+                        <h4
                           key={`coursePoint_${index}`}
                           className={styles.cardPoints}
                         >
                           <img src={point.icon} alt="icon" /> {point.point}
-                        </h5>
+                        </h4>
                       ))}
                     </div>
                   </div>
