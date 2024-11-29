@@ -53,11 +53,13 @@
   overflow: hidden;
   box-shadow: 0 0 5px 2px #0000001f;
   cursor: pointer;
-  min-height: 200px;
+  min-height: 370px;
   border-radius: 0.5rem;
   position: relative;
   transition: box-shadow 0.2s ease-in-out, transform 0.2s ease-in-out;
   padding-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
 
   &:hover {
     box-shadow: -2px -2px 3px 5px #0000001f;
@@ -93,6 +95,7 @@
   .cardContent {
     padding: 0.5rem;
     display: flex;
+    flex: 1;
     flex-direction: column;
     gap: 0.5rem;
   }
@@ -100,6 +103,7 @@
   .cardTitle {
     font-size: 1.1rem;
     font-weight: 600;
+    min-height: 65px;
   }
 
   .cardSubTitle {
@@ -109,6 +113,7 @@
   }
 
   .blogHistory {
+    margin-top: auto;
     font-size: 0.9rem;
     font-weight: 400;
     color: #797979;

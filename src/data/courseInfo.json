@@ -5,18 +5,18 @@
       "Build a basic “feel of data”",
       "Excel & SQL for data analysis",
       "Python for advance analysis",
-      "Work on real-world projects"
+      "Tableau & Power BI training"
     ],
     "desc": "This 5-month program helps students start their journey in the data field. It covers top tools, techniques, and key concepts.",
-    "bottomPoints": ["5-month program", "100% Guaranteed Internship"]
+    "bottomPoints": ["5-month program", "100% Job Assistance"]
   },
   {
     "title": "MERN Full Stack Web Development Program",
     "bulletPoints": [
-      "Logical reasoning and DSA",
+      "Logical Reasoning",
       "Frontend with React.js",
       "Backend with Node.js",
-      "4 real-world projects"
+      "10+ real world projects"
     ],
     "desc": "Become job-ready with this program. Prepare for a career in web development with practical skills and real-world projects.",
     "bottomPoints": ["7-month program", "100% Job Assistance"]
@@ -30,6 +30,6 @@
       "Build real-world marketing campaigns"
     ],
     "desc": "Learn cutting-edge digital marketing strategies & top AI tools to equip yourself with skills to excel as a next-gen marketer.",
-    "bottomPoints": ["4-month program", "100% Guaranteed Internship"]
+    "bottomPoints": ["4-month program", "100% Job Assistance"]
   }
 ]

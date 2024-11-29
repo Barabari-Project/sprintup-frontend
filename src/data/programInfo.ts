@@ -12,7 +12,7 @@ export const data: Program[] = [
           "Build a basic “feel of data“",
           "Excel & SQL for data analysis",
           "Python for advance analysis",
-          "Work on real-world projects",
+          "Tableau & Power BI training",
         ],
         highlightedPoints: [
           {
@@ -25,14 +25,14 @@ export const data: Program[] = [
         cardTitle: "Outcome",
         desc: "We provide an internship guarantee in this program. The internship will help you build a solid resume for job applications.",
         bulletPoints: [
-          "Real-world projects",
+          "10+ real-world projects",
           "Project portfolio building",
           "1:1 constant mentorship",
           "CV building & mock interviews",
         ],
         highlightedPoints: [
           {
-            point: "100% Guaranteed Internship",
+            point: "100% Job Assistance",
             icon: "/assets/icons/assistance.svg",
           },
         ],
@@ -48,10 +48,10 @@ export const data: Program[] = [
         cardTitle: "Curriculum",
         desc: "Prepare for a career in web development with practical skills and real-world projects. Become job-ready with this program.",
         bulletPoints: [
-          "Logical reasoning and DSA",
+          "Logical reasoning",
           "Frontend with React.js",
           "Backend with Node.js",
-          "4 real-world projects",
+          "10+ real-world projects",
         ],
         highlightedPoints: [
           {
@@ -110,7 +110,7 @@ export const data: Program[] = [
         ],
         highlightedPoints: [
           {
-            point: "100% Guaranteed Internship",
+            point: "100% Job Assistance",
             icon: "/assets/icons/assistance.svg",
           },
         ],

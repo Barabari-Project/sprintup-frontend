@@ -47,7 +47,7 @@ const BlogDetails: React.FC = () => {
             <h1 className={styles.blogHeading}>{blogDeatils.title}</h1>
             <div className={styles.blogHistory}>
               <h5>{blogDeatils.author}</h5>
-              <p>published at {blogDeatils.time}</p>
+              <p>Published on {blogDeatils.time}</p>
             </div>
             <div className={styles.imageContainer}>
               <div className={styles.blogTag}>{blogDeatils.tag}</div>
@@ -102,11 +102,16 @@ const BlogDetails: React.FC = () => {
                 );
               })}
             </div>
+            <div className={styles.seperator} />
             <div className={styles.endContainer}>
               <h2>{blogDeatils.detail.endheading}</h2>
               <div className={styles.endDesc}>
                 {blogDeatils.detail.enddesc.map((endDesc, idx) => {
-                  return <p key={`endDesc--${idx}`}>{SafeHtmlComponent(endDesc as string)}</p>;
+                  return (
+                    <p key={`endDesc--${idx}`}>
+                      {SafeHtmlComponent(endDesc as string)}
+                    </p>
+                  );
                 })}
               </div>
             </div>

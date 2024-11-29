@@ -11,10 +11,10 @@ const Courses: React.FC = () => {
     <>
       <section className={styles.courcesSection} id="courses">
         <div className={styles.courcesContainer}>
-          <h3 className={styles.sectionTitle}>Our Courses</h3>
+          <h3 className={styles.sectionTitle}>Our Programs</h3>
           <p className={styles.section_sub_title}>
             <span>Job-linked </span>
-            Upskilling Courses
+            Upskilling Programs
           </p>
           <div className={styles.courseCardContainer}>
             {cardDetails.map((card, idx) => {
