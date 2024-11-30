@@ -11,7 +11,7 @@ export const availableCourseData: DashboardAvailableCoursesData[] = [
   },
   {
     courseName: "MERN Full Stack Web Development Program",
-    courseDesc: "This 7-month program offers top-quality tech concepts by experienced instructors. We cover key concepts like MongoDB, Express.js, React, and Node.js, equipping you with the skills to excel in the competitive tech industry.",
+    courseDesc: "This 5-month program offers top-quality tech concepts by experienced instructors. We cover key concepts like MongoDB, Express.js, React, and Node.js, equipping you with the skills to excel in the competitive tech industry.",
     coursePoints: [
       { point: "Open to all disciplines", icon: "/assets/icons/openAll.svg" },
       { point: "100% Job Assistance Guarantee", icon: "/assets/icons/assistance.svg" },
