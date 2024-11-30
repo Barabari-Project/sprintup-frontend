@@ -55,7 +55,7 @@ export const data: Program[] = [
         ],
         highlightedPoints: [
           {
-            point: "7-month program",
+            point: "5-month program",
             icon: "/assets/icons/month.svg",
           },
         ],
