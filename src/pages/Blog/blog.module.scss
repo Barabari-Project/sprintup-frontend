@@ -53,7 +53,7 @@
   overflow: hidden;
   box-shadow: 0 0 5px 2px #0000001f;
   cursor: pointer;
-  min-height: 370px;
+  min-height: 345px;
   border-radius: 0.5rem;
   position: relative;
   transition: box-shadow 0.2s ease-in-out, transform 0.2s ease-in-out;
@@ -77,12 +77,14 @@
     position: absolute;
     top: 0.5rem;
     right: 0rem;
-    background: #b6b6b6;
+    background: #b6b6b6c2;
     padding: 0.2rem 0.5rem;
     border-radius: 6px 0 0 6px;
     min-width: 5rem;
+    font-size: 0.9rem;
     text-align: center;
     color: #444444;
+}
   }
 
   .blogImage {
@@ -103,7 +105,6 @@
   .cardTitle {
     font-size: 1.1rem;
     font-weight: 600;
-    min-height: 65px;
   }
 
   .cardSubTitle {
@@ -113,12 +114,10 @@
   }
 
   .blogHistory {
-    margin-top: auto;
     font-size: 0.9rem;
     font-weight: 400;
     color: #797979;
   }
-}
 
 .blogCard__loader {
   width: 100%;

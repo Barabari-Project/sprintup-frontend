@@ -12,7 +12,13 @@ const RestrictedRoute: React.FC<RestrictedRouteProps> = ({ children }) => {
   const location = useLocation();
 
   if (user) {
-    return <Navigate to="/dashboard" state={{ from: location }} replace />;
+    return (
+      <Navigate
+        to={location.state?.from?.pathname || "/dashboard"}
+        state={{ from: location }}
+        replace
+      />
+    );
   }
 
   return <>{children}</>;
