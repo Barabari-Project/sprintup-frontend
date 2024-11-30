@@ -9,8 +9,8 @@ const Features: React.FC = () => {
   return (
     <section className={styles.featureSection}>
       <div className={styles.featuresContainer}>
-        <h5 className={styles.sectionHeading}>Why choose us?</h5>
-        <h1 className={styles.sectionTitle}>
+        <h1 className={styles.sectionHeading}>Why choose us?</h1>
+        <h2 className={styles.sectionTitle}>
           Our Program Maximises
           {!isTablet ? (
             <span> Real-World Learning</span>
@@ -20,7 +20,7 @@ const Features: React.FC = () => {
               <span>Real-World Learning</span>
             </>
           )}
-        </h1>
+        </h2>
 
         <FeaturesCarausal />
         <NavLink to="/course-details" style={{ color: "#000" }}>

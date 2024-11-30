@@ -1,7 +1,7 @@
 [
   {
     "title": "DATA SCIENCE & ANALYTICS PROGRAM",
-    "image": "/assets/carousal/in-Class.svg",
+    "image": "/assets/carousal/Data_Analytics.svg",
     "desc": [
       "10+ Real World Projects",
       "100% Job Assistance Program"
@@ -9,7 +9,7 @@
   },
   {
     "title": "MERN FULL STACK <br/> WEB DEVELOPMENT",
-    "image": "/assets/carousal/jobs.svg",
+    "image": "/assets/carousal/Full_Stack.svg",
     "desc": [
       "100% Job Assistance Program",
       "15+ Placement Partner Companies"
@@ -17,7 +17,7 @@
   },
   {
     "title": "DIGITAL MARKETING WITH AI PROGRAM",
-    "image": "/assets/carousal/course.svg",
+    "image": "/assets/carousal/Digital_Marketing.svg",
     "desc": ["META Completion Certification", "1-Month Internship Guarantee"]
   }
 ]

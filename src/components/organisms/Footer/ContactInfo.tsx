@@ -38,36 +38,36 @@ const ContactInfo: React.FC = () => {
       </div>
       <ul>
         {contactInfoArray.map((item) => (
-          <a key={nanoid()} href={item.link}>
-            <li key={nanoid()}>
+          <li key={nanoid()}>
+            <a href={item.link}>
               <span>{item.icon}</span>
               <span>{item.title}</span>
-            </li>
-          </a>
+            </a>
+          </li>
         ))}
       </ul>
       <div className="social-media">
         <a
           href={contactDetails.facebook}
-          target="_blank
-          "
+          target="_blank"
           rel="noopener noreferrer"
+          title="connect on Facebook"
         >
           <i className="fa-brands fa-facebook-f"></i>
         </a>
         <a
           href={contactDetails.instagram}
-          target="_blank
-          "
+          target="_blank"
           rel="noopener noreferrer"
+          title="connect on Instagram"
         >
           <i className="fa-brands fa-instagram"></i>
         </a>
         <a
           href={contactDetails.linkedin}
-          target="_blank
-          "
+          target="_blank"
           rel="noopener noreferrer"
+          title="connect on LinkedIn"
         >
           <i className="fa-brands fa-linkedin-in"></i>
         </a>

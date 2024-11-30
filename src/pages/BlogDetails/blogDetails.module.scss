@@ -67,9 +67,10 @@
 .summaryContainer {
   .summary {
     font-size: 1.1rem;
+    line-height: 1.4;
+    letter-spacing: 1px;
     font-style: italic;
-    font-family: cursive;
-    font-weight: 400;
+    font-weight: 300;
     color: #737373;
     margin-bottom: 2.5rem;
     padding-left: 2rem;
@@ -154,6 +155,13 @@
     flex-direction: column;
     gap: 0.5rem;
   }
+}
+
+div.seperator {
+  width: 100%;
+  height: 0.1rem;
+  background-color: #ccc;
+  margin: 1rem 0;
 }
 
 .blogDetails__loader {
