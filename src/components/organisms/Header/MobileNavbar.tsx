@@ -78,6 +78,7 @@ const MobileNavbar: React.FC = () => {
           <li>
             <NavLink
               to="/blog"
+              onClick={closeMenu}
               className={({ isActive }) => (isActive ? "active" : "")}
             >
               Blogs

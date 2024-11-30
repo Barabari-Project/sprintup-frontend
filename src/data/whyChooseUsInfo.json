@@ -5,7 +5,7 @@
         "subtitle": "Specially curated for real-world learning",
         "detail": "We have gone beyond the basic tech courses. Our program integrates skills such as logical reasoning, mental frameworks, and other methodologies. We aim to establish a robust foundation for our students' learning journey.",
         "clipArt": "/assets/why_choose_us/OurProgram.svg",
-        "backGroundColor": "#7E8EF1"
+        "backGroundColor": "#5A70FE"
     },
     {
         "title": "Our Centre",
@@ -13,7 +13,7 @@
         "subtitle": "Dedicated centre for your </br> all-round growth",
         "detail": "We are establishing a distinguished centre for learning that aspires to be recognised nationally. Our primary emphasis lies in cultivating an environment conducive to top-quality classroom education, peer learning, and nurturing a healthy atmosphere.",
         "clipArt": "/assets/why_choose_us/OurCenter.svg",
-        "backGroundColor": "#00c9b6"
+        "backGroundColor": "#009E90"
     },
     {
         "title": "Our Team",
@@ -21,6 +21,6 @@
         "subtitle": "Best team to support you</br>all the way",
         "detail": "We are meticulously building a team to guide you every step of the way. Through 1:1 mentorship, interactive doubt-clearing sessions, and punctual feedback mechanisms, we are building a culture that prioritises and supports your continuous growth.",
         "clipArt": "/assets/why_choose_us/OurTeam.svg",
-        "backGroundColor": "#ec724b"
+        "backGroundColor": "#E46941"
     }
 ]

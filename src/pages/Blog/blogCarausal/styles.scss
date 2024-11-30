@@ -21,6 +21,7 @@
 
 .carausalSlide {
   width: 100%;
+  cursor: pointer;
   height: 29rem;
   display: flex !important;
   justify-content: center;
@@ -74,7 +75,7 @@
   justify-content: flex-start;
   gap: 0.5rem;
   h1 {
-    font-size: 2.5rem;
+    font-size: 2rem;
     font-weight: 500;
 
     @include sm-max {
@@ -82,7 +83,7 @@
     }
   }
   p {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
   }
 }
 

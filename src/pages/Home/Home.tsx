@@ -61,6 +61,8 @@ const Home: React.FC = () => {
         href="https://wa.me/9560939327"
         target="_blank"
         rel="noopener noreferrer"
+        aria-label="Chat with us on WhatsApp"
+        title="Chat with us on WhatsApp"
       >
         <BsWhatsapp />
       </a>
