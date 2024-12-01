@@ -1,0 +1,6 @@
+# Allow all bots to crawl everything
+User-agent: *
+Disallow:
+
+# Specify the location of the sitemap
+Sitemap: https://www.sprintup.in/sitemap.xml
