@@ -22,6 +22,7 @@ const Login = () => {
   const pathName = useLocation().pathname;
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const location = useLocation();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -75,7 +76,8 @@ const Login = () => {
       );
       localStorage.setItem("token", response.data.token);
       toast.success(response.data.message);
-      navigate("/dashboard");
+      const redirectPath = location.state?.from?.pathname || "/dashboard";
+      navigate(redirectPath, { replace: true });
     } catch (err: any) {
       if (404 == err.response.status) {
         toast.info(err.response.data.error);
