@@ -2,10 +2,23 @@ import { nanoid } from "nanoid";
 import ourValuesCardList from "../../data/ourValuesDetails.json";
 import { OurValuesCardDetails } from "../../types/types";
 import styles from "./styles.module.scss";
+import { Helmet } from "react-helmet";
 
 const OurValues: React.FC = () => {
   return (
     <section className={styles.ourValuesPage}>
+      <Helmet>
+        <title>SprintUp Job-Ready Courses - Data Science, Full Stack Web Development & Digital Marketing in Lucknow</title>
+        <meta
+          name="description"
+          content="Explore SprintUp's job-ready courses, including Data Science, Full Stack Web Development, and Digital Marketing. Learn from industry experts with 100% job placement support."
+        />
+        <meta
+          name="keywords"
+          content="Data Science, Analytics, Full Stack Development, Digital Marketing, Jobs, Training, Upskilling, Tech, Lucknow"
+        />
+      </Helmet>
+
       <div className={styles.ourValues}>
         <div className={styles.sectionHeader}>
           <h2 className={styles.sectionTitle}>our mission</h2>

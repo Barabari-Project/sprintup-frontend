@@ -12,6 +12,7 @@ import { toast } from "react-toastify";
 import restEndPoints from "../../data/restEndPoints.json";
 import { validateMessage, validateName, validatePhoneNumber } from "../../utils/validations";
 import axiosInstance from "../../utils/axiosInstance";
+import { Helmet } from "react-helmet";
 
 const ContactUs: React.FC = () => {
   const [inputName, setInputName] = useState<string>("");
@@ -76,6 +77,18 @@ const ContactUs: React.FC = () => {
   };
   return (
     <div>
+      <Helmet>
+        <title>Contact SprintUp - Get in Touch for Affordable Job-Ready Courses</title>
+        <meta
+          name="description"
+          content="Have questions about our programs? Contact SprintUp for more information on Data Science, Digital Marketing, and Full Stack courses in Lucknow."
+        />
+        <meta
+          name="keywords"
+          content="Contact SprintUp, Tech Courses in Lucknow, Get in Touch, Affordable Courses, Jobs, Training"
+        />
+      </Helmet>
+
       <div className={styles.contacts}>
         <div className={styles.left_section}>
           <h2>We would love to hear from you!</h2>

@@ -11,6 +11,7 @@ import Lottie from "react-lottie-player";
 import loaderDats from "../../Lottie/loaderSmall.json";
 import Button from "../../components/atoms/Button/Button";
 import { useNavigate } from "react-router-dom";
+import { Helmet } from "react-helmet";
 
 const Blog: React.FC = () => {
   const dispatch = useDispatch<AppDispatch>();
@@ -70,6 +71,17 @@ const Blog: React.FC = () => {
 
   return (
     <div className={styles.blog}>
+      <Helmet>
+        <title>SprintUp Blog - Insights on Tech Careers, Trends & Skills, Jobs, Lucknow</title>
+        <meta
+          name="description"
+          content="Stay updated with SprintUp's blog, featuring articles on career guidance, industry trends, and insights into upskilling for Data Science, Full Stack, Digital Marketing and other job-ready courses."
+        />
+        <meta
+          name="keywords"
+          content="Tech Blog, Data Science Insights, Full Stack Careers, Digital Marketing Trends, SprintUp Blog"
+        />
+      </Helmet>
       <div className={styles.blogPage}>
         <BlogCarusal data={carausalData} loading={carausalLoading} />
         <div className={styles.bolgSection}>

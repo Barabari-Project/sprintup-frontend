@@ -11,6 +11,7 @@ import { Navigate, useLocation } from "react-router-dom";
 import { RootState } from "../../redux/store";
 import RequestCallModal from "../../components/molecule/RequestCallModal/RequestCallModal";
 import { useMedia } from "react-use";
+import {Helmet} from 'react-helmet';
 
 const Home: React.FC = () => {
   const { user } = useSelector((state: RootState) => state.user);
@@ -48,6 +49,18 @@ const Home: React.FC = () => {
 
   return (
     <div className="home">
+      <Helmet>
+        <title>SprintUp - Affordable Data Science, Full Stack Web Development, and Digital Marketing Courses in Lucknow | 100% Job Placement Assistance</title>
+        <meta
+          name="description"
+          content="Join SprintUp's affordable job-ready upskilling programs in Lucknow, featuring Data Science, Digital Marketing, and Full Stack Web Development with top MNC instructors and 100% job placement assistance."
+        />
+        <meta
+          name="keywords"
+          content="Data Science, Full Stack Development, Digital Marketing, Affordable Courses, Placement Assistance, Jobs, Training, Lucknow"
+        />
+      </Helmet>
+
       {requestModal && <RequestCallModal onClose={onClose} />}
       <Hero />
       <Courses />
