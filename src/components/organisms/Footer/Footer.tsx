@@ -5,6 +5,7 @@ import ContactInfo from "./ContactInfo";
 import { Link } from "react-router-dom";
 
 const Footer: React.FC = () => {
+  
   return (
     <footer>
       <div className="footer">
@@ -18,7 +19,8 @@ const Footer: React.FC = () => {
               rel="noopener noreferrer"
               className="developer drumil"
             >
-              <img src="/assets/developer/drumil.jpg" alt="drumil" />
+              <img src={`${import.meta.env.VITE_CDN_BASE_URL}/developer/drumil.jpg`} alt="drumil" />
+              {/* <img src="https://dodet7u7m5fdh.cloudfront.net/developer/drumil.jpg" alt="drumil" /> */}
             </a>
             <a
             title="Mayank Gupta"
@@ -27,7 +29,7 @@ const Footer: React.FC = () => {
               rel="noopener noreferrer"
               className="developer mayank"
             >
-              <img src="/assets/developer/mayank.jpg" alt="mayank" />
+              <img src="https://dodet7u7m5fdh.cloudfront.net/developer/mayank.jpg" alt="mayank" />
             </a>
           </div>
         </div>

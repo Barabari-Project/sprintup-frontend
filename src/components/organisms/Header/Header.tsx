@@ -3,7 +3,7 @@ import "./style.scss";
 import MobileNavbar from "./MobileNavbar";
 import { NavLink, Link, useLocation } from "react-router-dom";
 import { MdOutlineKeyboardDoubleArrowUp } from "react-icons/md";
-import logo from "/assets/logo.svg";
+// import logo from "/assets/logo.svg";
 import { useMedia } from "react-use";
 import { useSelector } from "react-redux";
 import { RootState } from "../../../redux/store";
@@ -55,7 +55,7 @@ const Header: React.FC = () => {
           <div className={"header_logo"}>
             {!isMobile ? <MobileNavbar /> : null}
             <Link to="/" state={{ isForceFull: true }} onClick={scrollToTop} className="logo">
-              <img src={logo} alt="" />
+              <img src={import.meta.env.VITE_CDN_BASE_URL+"/logo.svg"} alt="" />
               <h2>SprintUp</h2>
             </Link>
           </div>

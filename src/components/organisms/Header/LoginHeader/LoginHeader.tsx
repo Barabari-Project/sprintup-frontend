@@ -1,7 +1,7 @@
 import React from "react";
 import MobileNavbar from "../MobileNavbar";
 import { Link, useLocation } from "react-router-dom";
-import logo from "/assets/logo.svg";
+// import logo from "/assets/logo.svg";
 import styles from "./LoginHeader.module.scss";
 
 const LoginHeader: React.FC = () => {
@@ -15,7 +15,7 @@ const LoginHeader: React.FC = () => {
           <div className={styles.loginHeader_logo}>
             <MobileNavbar />
             <Link to="/" className={styles.logo}>
-              <img src={logo} alt="" />
+              <img src={import.meta.env.VITE_CDN_BASE_URL+"/logo.svg"} alt="" />
               <h2>SprintUp</h2>
             </Link>
           </div>

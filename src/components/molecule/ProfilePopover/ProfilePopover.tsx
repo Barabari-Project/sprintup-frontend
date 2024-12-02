@@ -47,7 +47,7 @@ const ProfilePopover: React.FC = () => {
             aria-label="Update dimensions"
             title={user.name}
           >
-            <img src={`/assets/avatar/${user.avatar || "1"}.png`} alt="" />
+            <img src={`${import.meta.env.VITE_CDN_BASE_URL}/avatar/${user.avatar || "1"}.png`} alt="" />
           </button>
         </Popover.Trigger>
         <Popover.Portal>

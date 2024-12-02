@@ -11,6 +11,7 @@ import { toast } from "react-toastify";
 import { validateName, validatePhoneNumber } from "../../../utils/validations";
 import axiosInstance from "../../../utils/axiosInstance";
 import restEndPoints from "../../../data/restEndPoints.json";
+import LoaderOverlay from "../LoaderOverlay/LoaderOverlay";
 
 interface RequestCallModal {
   onClose: () => void;
@@ -89,7 +90,8 @@ const RequestCallModal: React.FC<RequestCallModal> = ({ onClose }) => {
           />
           {isLoading ? (
             <div className="form-loader">
-              <img src="/assets/loader_compressed.gif" alt="loader" />
+              <LoaderOverlay/>
+              {/* <img src="/assets/loader_compressed.gif" alt="loader" /> */}
             </div>
           ) : (
             <Button
