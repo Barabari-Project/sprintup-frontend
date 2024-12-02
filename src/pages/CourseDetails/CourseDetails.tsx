@@ -48,7 +48,7 @@ const CourseDetails: React.FC = () => {
                           {card.highlightedPoints.map((point) => {
                             return (
                               <h4 key={nanoid()} className={styles.cardPoints}>
-                                <img src={point.icon} alt="" />
+                                <img src={import.meta.env.VITE_CDN_BASE_URL+point.icon} alt="" />
                                 {point.point}
                               </h4>
                             );

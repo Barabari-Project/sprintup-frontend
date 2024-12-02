@@ -34,7 +34,7 @@ const OurValues: React.FC = () => {
               {cardDetail.image ? (
                 <img
                   className={styles.cardImage}
-                  src={cardDetail.image}
+                  src={import.meta.env.VITE_CDN_BASE_URL+cardDetail.image}
                   alt="image"
                 />
               ) : null}

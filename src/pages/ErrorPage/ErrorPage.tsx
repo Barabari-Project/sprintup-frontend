@@ -15,7 +15,7 @@ export default function ErrorPage() {
   return (
     <div className={styles.errorPage}>
       <div className={styles.imageContainer}>
-        <img src="/assets/404Image.gif" alt="Error" />
+        <img src={import.meta.env.VITE_CDN_BASE_URL+"/404Image.gif"} alt="Error" />
       </div>
       <div className={styles.content}>
         <h1>Oops!</h1>

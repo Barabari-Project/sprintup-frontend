@@ -59,7 +59,7 @@ const Carausal: React.FC<CarausalProps> = ({ data }) => {
             const sanitizedHtml = SafeHtmlComponent(slide.title as string);
             return (
               <div key={nanoid()} className={"carausalSlide"}>
-                <img className="background" src={slide.image} alt="slide image" />
+                <img className="background" src={import.meta.env.VITE_CDN_BASE_URL+slide.image} alt="slide image" />
                 <div className={"slideDescription"}>
                   <h2>{sanitizedHtml}</h2>
                   <ul className={"desc_list"}>

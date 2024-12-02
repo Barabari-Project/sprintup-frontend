@@ -17,7 +17,7 @@ export const data: Program[] = [
         highlightedPoints: [
           {
             point: "5-month program",
-            icon: "/assets/icons/month.svg",
+            icon: "/icons/month.svg",
           },
         ],
       },
@@ -33,7 +33,7 @@ export const data: Program[] = [
         highlightedPoints: [
           {
             point: "100% Job Assistance",
-            icon: "/assets/icons/assistance.svg",
+            icon: "/icons/assistance.svg",
           },
         ],
       },
@@ -56,7 +56,7 @@ export const data: Program[] = [
         highlightedPoints: [
           {
             point: "6-month program",
-            icon: "/assets/icons/month.svg",
+            icon: "/icons/month.svg",
           },
         ],
       },
@@ -72,7 +72,7 @@ export const data: Program[] = [
         highlightedPoints: [
           {
             point: "100% Job Assistance",
-            icon: "/assets/icons/assistance.svg",
+            icon: "/icons/assistance.svg",
           },
         ],
       },
@@ -95,7 +95,7 @@ export const data: Program[] = [
         highlightedPoints: [
           {
             point: "4-month program",
-            icon: "/assets/icons/month.svg",
+            icon: "/icons/month.svg",
           },
         ],
       },
@@ -111,7 +111,7 @@ export const data: Program[] = [
         highlightedPoints: [
           {
             point: "100% Job Assistance",
-            icon: "/assets/icons/assistance.svg",
+            icon: "/icons/assistance.svg",
           },
         ],
       },

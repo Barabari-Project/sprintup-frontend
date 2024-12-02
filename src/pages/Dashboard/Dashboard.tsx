@@ -89,8 +89,8 @@ const Dashboard: React.FC = () => {
           <img
             src={
               user.enrolled
-                ? marketingBannerDetails.enrolled.clipArt
-                : marketingBannerDetails.guest.clipArt
+                ?import.meta.env.VITE_CDN_BASE_URL+ marketingBannerDetails.enrolled.clipArt
+                : import.meta.env.VITE_CDN_BASE_URL+marketingBannerDetails.guest.clipArt
             }
             alt="banner"
           />
@@ -148,7 +148,7 @@ const Dashboard: React.FC = () => {
                           key={`coursePoint_${index}`}
                           className={styles.cardPoints}
                         >
-                          <img src={point.icon} alt="icon" /> {point.point}
+                          <img src={import.meta.env.VITE_CDN_BASE_URL+point.icon} alt="icon" /> {point.point}
                         </h4>
                       ))}
                     </div>
