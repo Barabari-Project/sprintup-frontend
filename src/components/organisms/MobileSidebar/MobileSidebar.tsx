@@ -22,7 +22,7 @@ const MobileSidebar: React.FC<MobileSidebarProps> = ({ isOpen, close }) => {
         <div className={styles.sidebar}>
           <div className={styles.sidebar_logo}>
             <Link to="" className={styles.logo}>
-              <img src="/assets/logo.svg" alt="" />
+              <img src={import.meta.env.VITE_CDN_BASE_URL+"/logo.svg"} alt="" />
               <h2>SprintUp</h2>
             </Link>
           </div>

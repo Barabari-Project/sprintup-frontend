@@ -17,6 +17,7 @@ import axiosInstance, {
 } from "../../../utils/axiosInstance";
 import restEndPoints from "../../../data/restEndPoints.json";
 import { EventType } from "../../../types/types";
+import LoaderOverlay from "../LoaderOverlay/LoaderOverlay";
 
 interface TalkToUsModalProps {
   onClose: () => void;
@@ -104,7 +105,8 @@ const TalkToUsModal: React.FC<TalkToUsModalProps> = ({
           />
           {isLoading ? (
             <div className={styles.form_loader}>
-              <img src="/assets/loader_compressed.gif" alt="loader" />
+              <LoaderOverlay/>
+              {/* <img src="/assets/loader_compressed.gif" alt="loader" /> */}
             </div>
           ) : (
             <Button

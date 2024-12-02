@@ -13,6 +13,7 @@ import restEndPoints from "../../data/restEndPoints.json";
 import { validateMessage, validateName, validatePhoneNumber } from "../../utils/validations";
 import axiosInstance from "../../utils/axiosInstance";
 import { Helmet } from "react-helmet";
+import LoaderOverlay from "../../components/molecule/LoaderOverlay/LoaderOverlay";
 
 const ContactUs: React.FC = () => {
   const [inputName, setInputName] = useState<string>("");
@@ -140,7 +141,8 @@ const ContactUs: React.FC = () => {
             />
             {isLoading ? (
               <div className={styles.form_loader}>
-                <img src="/assets/loader_compressed.gif" alt="loader" />
+                <LoaderOverlay/>
+                {/* <img src="/assets/loader_compressed.gif" alt="loader" /> */}
               </div>
             ) : (
               <Button

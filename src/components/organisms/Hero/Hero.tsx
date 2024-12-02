@@ -12,6 +12,7 @@ import restEndPoints from "../../../data/restEndPoints.json";
 import { validateName, validatePhoneNumber } from "../../../utils/validations";
 import axiosInstance, { eventAxiosInstance } from "../../../utils/axiosInstance";
 import { EventType } from "../../../types/types";
+import LoaderOverlay from "../../molecule/LoaderOverlay/LoaderOverlay";
 
 export interface ProfileData {
   image: string;
@@ -104,7 +105,8 @@ const Hero: React.FC = () => {
               />
               {isLoading ? (
                 <div className="form-loader">
-                  <img src="/assets/loader_compressed.gif" alt="loader" />
+                  <LoaderOverlay/>
+                  {/* <img src="/assets/loader_compressed.gif" alt="loader" /> */}
                 </div>
               ) : (
                 <Button

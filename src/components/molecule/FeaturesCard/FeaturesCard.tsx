@@ -1,7 +1,7 @@
 import React from "react";
 import "./card.scss";
 import { WhyChooseUs } from "../../../types/types";
-import logo from "/assets/logo.svg";
+// import logo from "/assets/logo.svg";
 import { SafeHtmlComponent } from "../Carausal/Carausal";
 
 const FeaturesCard: React.FC<WhyChooseUs> = ({
@@ -34,7 +34,7 @@ const BlogCard: React.FC<WhyChooseUs> = ({
       <Front
         title={title}
         subtitle={subtitle}
-        clipArt={clipArt}
+        clipArt={import.meta.env.VITE_CDN_BASE_URL+clipArt}
         backGroundColor={backGroundColor}
       />
       <Back detail={detail} />
@@ -78,7 +78,7 @@ const Back: React.FC<BackProps> = ({ detail }) => {
   return (
     <div className="back">
       <div className="card-back-logo">
-        <img src={logo} width={50} height={50} alt="" />
+        <img src={ import.meta.env.VITE_CDN_BASE_URL+"/logo.svg"} width={50} height={50} alt="" />
       </div>
       <p>{detail}</p>
       <div style={{ display: "flex", justifyContent: "flex-end" }}>

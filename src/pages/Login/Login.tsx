@@ -11,6 +11,7 @@ import restEndPoints from "../../data/restEndPoints.json";
 import axiosInstance from "../../utils/axiosInstance";
 import { useDispatch } from "react-redux";
 import { setUserDetails } from "../../redux/slices/UserSliice";
+import LoaderOverlay from "../../components/molecule/LoaderOverlay/LoaderOverlay";
 
 const Login = () => {
   const [inputNumber, setInputNumber] = useState<string>("");
@@ -112,8 +113,8 @@ const Login = () => {
           <img
             src={
               pathName === "/signup"
-                ? "/assets/signup.svg"
-                : "/assets/login.svg"
+                ? import.meta.env.VITE_CDN_BASE_URL+"/signup.svg"
+                : import.meta.env.VITE_CDN_BASE_URL+"/login.svg"
             }
             alt=""
           />
@@ -155,7 +156,8 @@ const Login = () => {
             />
             {isLoading ? (
               <div className={styles.formLoader}>
-                <img src="/assets/loader_compressed.gif" alt="loader" />
+                <LoaderOverlay/>
+                {/* <img src="/assets/loader_compressed.gif" alt="loader" /> */}
               </div>
             ) : (
               <Button text="Continue" style={{ width: "100%" }} />

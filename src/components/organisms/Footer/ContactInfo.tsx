@@ -2,7 +2,7 @@ import React from "react";
 import "./style.scss";
 import { nanoid } from "nanoid";
 // import footerLogo from '../../../assets/images/footerLogo.svg';
-import logo from "/assets/logo.svg";
+// import logo from "/assets/logo.svg";
 import contactDetails from "../../../data/contactDetails.json";
 
 const ContactInfo: React.FC = () => {
@@ -33,7 +33,7 @@ const ContactInfo: React.FC = () => {
     <div className="pagesContainer">
       {/* <img className="footer-logo" src={footerLogo} /> */}
       <div className="footer-logo">
-        <img src={logo} alt="" />
+        <img src={import.meta.env.VITE_CDN_BASE_URL+"/logo.svg"} alt="" />
         <h2> SprintUp</h2>
       </div>
       <ul>
