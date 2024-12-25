@@ -4,7 +4,7 @@ import styles from "./Login.module.scss";
 import Input from "../../components/atoms/Input/Input";
 import { useLocation, useNavigate } from "react-router-dom";
 import { FaUser } from "react-icons/fa6";
-import ReCAPTCHA from "react-google-recaptcha";
+// import ReCAPTCHA from "react-google-recaptcha";
 import { toast } from "react-toastify";
 import { validateName, validatePhoneNumber } from "../../utils/validations";
 import restEndPoints from "../../data/restEndPoints.json";
@@ -94,18 +94,18 @@ const Login = () => {
   };
 
   //TODO: uncomment later
-  const onChangecaptcha = async (value: string | null) => {
-    // const response = await axios.post("https://www.google.com/recaptcha/api/siteverify", {
-    //   secert: import.meta.env.VITE_RECAPTCHA_SITE_KEY,
-    //   response: value
-    // })
-    // if (value) {
-    //   setCaptchaVerified(true);
-    // } else {
-    //   setCaptchaVerified(false);
-    // }
-    console.log(value);
-  };
+  // const onChangecaptcha = async (value: string | null) => {
+  //   // const response = await axios.post("https://www.google.com/recaptcha/api/siteverify", {
+  //   //   secert: import.meta.env.VITE_RECAPTCHA_SITE_KEY,
+  //   //   response: value
+  //   // })
+  //   // if (value) {
+  //   //   setCaptchaVerified(true);
+  //   // } else {
+  //   //   setCaptchaVerified(false);
+  //   // }
+  //   console.log(value);
+  // };
   return (
     <div className={styles.loginPage}>
       <div className={styles.loginFormContainer}>
@@ -150,10 +150,10 @@ const Login = () => {
               errorMessage={numberError}
               onChange={(e) => setInputNumber(e.target.value)}
             />
-            <ReCAPTCHA
+            {/* <ReCAPTCHA
               sitekey={import.meta.env.VITE_RECAPTCHA_SITE_KEY}
               onChange={onChangecaptcha}
-            />
+            /> */}
             {isLoading ? (
               <div className={styles.formLoader}>
                 <LoaderOverlay/>
